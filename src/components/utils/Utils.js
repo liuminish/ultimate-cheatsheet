@@ -10,11 +10,29 @@ import 'codemirror/theme/material.css';
 import 'codemirror/mode/javascript/javascript';
 import 'codemirror/mode/xml/xml';
 
+// simple textbox with no copy function
+class Textbox extends React.Component {
+    render() {
+        return (
+            <div className="textbox-copy">
+                <div className="textbox-copy-expl" style={{width: this.props.width}}>
+                    {this.props.property}:
+                </div>
+                <div className="textbox-copy-field">
+                    {this.props.values}
+                </div>
+            </div>
+        )
+        
+    }
+}
+
+// codemirror textbox with explanation and copy function
 class TextboxCopy extends React.Component {
     render() {
         return (
             <div className="textbox-copy">
-                <div className="textbox-copy-expl">
+                <div className="textbox-copy-expl" style={{width: this.props.width}}>
                     {this.props.explanation}:
                 </div>
                 <CodeMirror
@@ -35,6 +53,38 @@ class TextboxCopy extends React.Component {
     }
 }
 
+
+// codemirror textbox with detailed explanation and copy function
+class TextboxCopyDetailed extends React.Component {
+    render() {
+        return (
+            <div className="textbox-copy-detailed" style={{width: this.props.width}}>
+                <div className="textbox-copy-expl">
+                    <p id="textbox-header">{this.props.explanation}</p>
+                    <p>{this.props.explanationDetailed}</p>
+                </div>
+                <div className="textbox-copy-detailedbody">
+                    <CodeMirror
+                        value={this.props.content}
+                        options={{
+                            mode: 'javascript',
+                            theme: 'material',
+                            lineNumbers: false
+                        }}
+                    />
+                    <div className="textbox-copy-logo">
+                        <CopyToClipboard text={this.props.content} onCopy={this.props.copyText}>
+                            <RiFileCopyLine />
+                        </CopyToClipboard>
+                    </div>
+                </div>
+            </div>
+            
+        )
+    }
+}
+
+// codemirror textbox with copy function, but no explanation
 class TexboxCodeCopy extends React.Component {
     render() {
         return (
@@ -57,26 +107,27 @@ class TexboxCodeCopy extends React.Component {
     }
 }
 
-class TextboxInteractive extends React.Component {
+// interactive div displaying chosen options
+class DivInteractive extends React.Component {
     render() {
         return (
-            <div className="textbox-inter">
-                <div className="textbox-inter-expl">
+            <div className="div-inter">
+                <div className="div-inter-expl" style={{width: this.props.width}}>
                     {this.props.property}:
                 </div>
-                <div className="textbox-inter-field">
+                <div className="div-inter-field">
                     {this.props.values.map((value, index) => {
-                        const fieldStatus = value === this.props.flexStyle[this.props.property] ? "textbox-inter-field-active" : "textbox-inter-field-inactive";
+                        const fieldStatus = value === this.props.flexStyle[this.props.property] ? "div-inter-field-active" : "div-inter-field-inactive";
                         if (index === this.props.values.length - 1) {
                             return (    
-                                <span className={fieldStatus} id="textbox-inter-clickable" onClick={() => this.props.handleClick(this.props.property, value)}>
+                                <span className={fieldStatus} id="div-inter-clickable" onClick={() => this.props.handleClick(this.props.property, value)}>
                                     {value}
                                 </span>
                             )
                         } else {
                             return (    
                                 <span>
-                                    <span className={fieldStatus} id="textbox-inter-clickable" onClick={() => this.props.handleClick(this.props.property, value)}>
+                                    <span className={fieldStatus} id="div-inter-clickable" onClick={() => this.props.handleClick(this.props.property, value)}>
                                     {value} 
                                     </span>
                                     &nbsp;|&nbsp;
@@ -87,24 +138,7 @@ class TextboxInteractive extends React.Component {
                         
                     })}
                 </div>
-                &nbsp;<RiRefreshLine id="textbox-inter-clickable" onClick={() => this.props.reset(this.props.property)}/>
-            </div>
-        )
-        
-    }
-}
-
-
-class Textbox extends React.Component {
-    render() {
-        return (
-            <div className="textbox-inter">
-                <div className="textbox-inter-expl">
-                    {this.props.property}:
-                </div>
-                <div className="textbox-inter-field">
-                    {this.props.values}
-                </div>
+                &nbsp;<RiRefreshLine id="div-inter-clickable" onClick={() => this.props.reset(this.props.property)}/>
             </div>
         )
         
@@ -124,4 +158,4 @@ class DropdownMenu extends React.Component {
 }
 
 
-export { TextboxCopy, TexboxCodeCopy, TextboxInteractive, Textbox, DropdownMenu };
+export { Textbox, TextboxCopy, TexboxCodeCopy, TextboxCopyDetailed, DivInteractive, DropdownMenu };

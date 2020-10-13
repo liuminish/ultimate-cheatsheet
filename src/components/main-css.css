@@ -39,7 +39,7 @@ a:hover {
 
 /* navibar */
 .navibar-container-main {
-  z-index: 2;
+  z-index: 99;
   position: fixed;
   display: flex;
   justify-content: center;
@@ -50,7 +50,7 @@ a:hover {
 }
 
 .navibar-container-sub {
-  z-index: 2;
+  z-index: 99;
   position: fixed;
   display: flex;
   justify-content: center;
@@ -107,12 +107,6 @@ a:hover {
   width: 49%;
 }
 
-.cheatsheet-subtitle {
-  padding: 10px 10px 0;
-  font-size: 20px;
-  border-radius: 10px;
-}
-
 .cheatsheet-box {
   background-color: white;
   margin: 20px 0;
@@ -122,6 +116,7 @@ a:hover {
 
 #cheatsheet-header {
   margin-bottom: 5px;
+  text-decoration: underline;
 }
 
 .cheatsheet-box p {
@@ -133,6 +128,17 @@ a:hover {
 }
 
 /* copy textbox */
+.textbox-copy-detailed {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 10px 0;
+}
+
+.textbox-copy-detailedbody {
+  display: flex;
+  justify-content: flex-start;
+}
 
 .textbox-copy {
   display: flex;
@@ -145,11 +151,15 @@ a:hover {
   margin-right: 5px;
 }
 
+#textbox-header {
+  text-decoration: underline;
+}
+
 .textbox-copy-field {
   padding: 5px;
   background: var(--main-acc-color);
   font-size: 14px;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 .textbox-copy-logo {
@@ -179,31 +189,31 @@ a:hover {
   padding: 0;
 }
 
-/* interactive textbox */
+/* interactive div */
 
-.textbox-inter {
+.div-inter {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   margin: 3px 0;
 }
 
-.textbox-inter-expl {
+.div-inter-expl {
   margin-right: 5px;
 }
 
-.textbox-inter-field {
+.div-inter-field {
   padding: 5px;
   background: var(--main-acc-color);
   font-size: 14px;
   border-radius: 5px;
 }
 
-.textbox-inter-field-active {
+.div-inter-field-active {
   color: var(--second-txt-color);
 }
 
-#textbox-inter-clickable:hover {
+#div-inter-clickable:hover {
   color: var(--second-txt-color);
   cursor: pointer
 }

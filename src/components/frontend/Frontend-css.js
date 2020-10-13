@@ -1,7 +1,7 @@
 import React from 'react';
 import '../main-css.css';
 
-import { TextboxInteractive, TexboxCodeCopy, Textbox, DropdownMenu } from '../utils/Utils';
+import { DivInteractive, TexboxCodeCopy, Textbox, DropdownMenu } from '../utils/Utils';
 
 class FrontendCss extends React.Component {
     constructor(props) {
@@ -111,21 +111,70 @@ class FrontendCss extends React.Component {
 
                         <div className="cheatsheet-box">
                             <p id="cheatsheet-header">Flex container properties</p>
-                            <p><TextboxInteractive property="display" values={['block', 'flex']} flexStyle={this.state.flexStyle} handleClick={this.updateFlexStyle} reset={this.resetFlexStyle} /></p>
-                            <p><TextboxInteractive property="flex-direction" values={['row', 'row-reverse', 'column', 'column-reverse']} flexStyle={this.state.flexStyle} handleClick={this.updateFlexStyle} reset={this.resetFlexStyle} /></p>
-                            <p><TextboxInteractive property="flex-wrap" values={['wrap', 'nowrap', 'wrap-reverse']} flexStyle={this.state.flexStyle} handleClick={this.updateFlexStyle}  reset={this.resetFlexStyle} /></p>
-                            <p><Textbox property="flex-flow" values="flex-direction flex-wrap" /></p>
+                            <p><DivInteractive 
+                                property="display" 
+                                values={['block', 'flex']} 
+                                flexStyle={this.state.flexStyle} 
+                                handleClick={this.updateFlexStyle} 
+                                reset={this.resetFlexStyle}
+                                width="110px"
+                            /></p>
+                            <p><DivInteractive 
+                                property="flex-direction" 
+                                values={['row', 'row-reverse', 'column', 'column-reverse']} 
+                                flexStyle={this.state.flexStyle} 
+                                handleClick={this.updateFlexStyle} 
+                                reset={this.resetFlexStyle}
+                                width="110px"
+                            /></p>
+                            <p><DivInteractive 
+                                property="flex-wrap" 
+                                values={['wrap', 'nowrap', 'wrap-reverse']} 
+                                flexStyle={this.state.flexStyle} 
+                                handleClick={this.updateFlexStyle}  
+                                reset={this.resetFlexStyle} 
+                                width="110px"
+                            /></p>
+                            <p><Textbox 
+                                property="flex-flow" 
+                                values="flex-direction flex-wrap" 
+                                width="110px"
+                            /></p>
                         </div>
 
                         <div className="cheatsheet-box">
                             <p id="cheatsheet-header">Flex alignment properties</p>
-                            <p><TextboxInteractive property="justify-content" values={['flex-start', 'flex-end', 'center', 'space-around', 'space-between', 'space-evenly']} flexStyle={this.state.flexStyle} handleClick={this.updateFlexStyle} reset={this.resetFlexStyle} /></p>
-                            <p><TextboxInteractive property="align-items" values={['flex-start', 'flex-end', 'center', 'stretch', 'baseline']} flexStyle={this.state.flexStyle} handleClick={this.updateFlexStyle} reset={this.resetFlexStyle} /></p>
-                            <p><TextboxInteractive property="align-content" values={['flex-start', 'flex-end', 'center', 'stretch', 'space-around', 'space-between']} flexStyle={this.state.flexStyle} handleClick={this.updateFlexStyle}  reset={this.resetFlexStyle} /></p>
+                            <p><DivInteractive 
+                                property="justify-content" 
+                                values={['flex-start', 'flex-end', 'center', 'space-around', 'space-between', 'space-evenly']} 
+                                flexStyle={this.state.flexStyle} 
+                                handleClick={this.updateFlexStyle} 
+                                reset={this.resetFlexStyle}
+                                width="110px"
+                            /></p>
+                            <p><DivInteractive 
+                                property="align-items" 
+                                values={['flex-start', 'flex-end', 'center', 'stretch', 'baseline']} 
+                                flexStyle={this.state.flexStyle} 
+                                handleClick={this.updateFlexStyle} 
+                                reset={this.resetFlexStyle} 
+                                width="110px"
+                            /></p>
+                            <p><DivInteractive 
+                                property="align-content" 
+                                values={['flex-start', 'flex-end', 'center', 'stretch', 'space-around', 'space-between']} 
+                                flexStyle={this.state.flexStyle} 
+                                handleClick={this.updateFlexStyle} 
+                                reset={this.resetFlexStyle}
+                                width="110px"
+                            /></p>
                         </div>
 
                         <div className="cheatsheet-box">
-                            <TexboxCodeCopy value={this.state.flexTextbox} onChange={this.updateFlexTextbox} />
+                            <TexboxCodeCopy 
+                                value={this.state.flexTextbox} 
+                                onChange={this.updateFlexTextbox} 
+                            />
                         </div>
 
                     </div>

@@ -8,42 +8,30 @@ import {Controlled as CodeMirror} from 'react-codemirror2';
 import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/material.css';
 import 'codemirror/mode/javascript/javascript';
+import 'codemirror/mode/xml/xml';
 
 class TextboxCopy extends React.Component {
     render() {
-        if (Array.isArray(this.props.content)) {
-            return (
-                <div className="textbox-copy">
-                    <div className="textbox-copy-field">
-                        {this.props.content.map(line => {
-                            return <p>{line}</p>
-                        })}
-                    </div>
-                    <div className="textbox-copy-logo">
-                        <CopyToClipboard text={this.props.content.join('\n')} onCopy={this.props.copyText}>
-                            <RiFileCopyLine />
-                        </CopyToClipboard>
-                    </div>
+        return (
+            <div className="textbox-copy">
+                <div className="textbox-copy-expl">
+                    {this.props.explanation}:
                 </div>
-            )
-        } else {
-            return (
-                <div className="textbox-copy">
-                    <div className="textbox-copy-expl">
-                        {this.props.explanation}:
-                    </div>
-                    <div className="textbox-copy-field">
-                        {this.props.content}
-                    </div>
-                    <div className="textbox-copy-logo">
-                        <CopyToClipboard text={this.props.content} onCopy={this.props.copyText}>
-                            <RiFileCopyLine />
-                        </CopyToClipboard>
-                    </div>
+                <CodeMirror
+                    value={this.props.content}
+                    options={{
+                        mode: 'javascript',
+                        theme: 'material',
+                        lineNumbers: false
+                    }}
+                />
+                <div className="textbox-copy-logo">
+                    <CopyToClipboard text={this.props.content} onCopy={this.props.copyText}>
+                        <RiFileCopyLine />
+                    </CopyToClipboard>
                 </div>
-            )
-        }
-        
+            </div>
+        )
     }
 }
 

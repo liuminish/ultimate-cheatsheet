@@ -196,7 +196,7 @@ a:hover {
   padding: 5px;
   background: var(--main-acc-color);
   font-size: 14px;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 .textbox-inter-field-active {
@@ -211,6 +211,7 @@ a:hover {
 /* codemirror */
 .CodeMirror {
   height: auto !important;
+  border-radius: 5px;
 }
 
 .CodeMirror-scroll {
@@ -221,6 +222,10 @@ a:hover {
 .introduction-body {
   width: 100%;
   text-align: center;
+}
+
+#introduction-logo {
+  font-size: 17px
 }
 
 /* frontend */

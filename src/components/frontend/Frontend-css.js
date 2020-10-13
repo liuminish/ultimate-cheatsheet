@@ -11,7 +11,7 @@ class FrontendCss extends React.Component {
             flexStyle: {
                 'display': 'flex',
                 'flex-direction': 'row',
-                'flex-wrap': 'wrap',
+                'flex-wrap': 'nowrap',
                 'justify-content': 'flex-start',
                 'align-items': 'flex-start',
                 'align-content': 'flex-start',
@@ -50,7 +50,7 @@ class FrontendCss extends React.Component {
                 newFlexStyle[property] = 'row'
                 break;
             case 'flex-wrap':
-                newFlexStyle[property] = 'wrap'
+                newFlexStyle[property] = 'nowrap'
                 break;
             case 'justify-content':
                 newFlexStyle[property] = 'flex-start'
@@ -183,7 +183,7 @@ class FrontendCss extends React.Component {
 
                         <div className="css-flex-options">
                             <div className="css-flex-option">
-                                Number of boxes: <DropdownMenu value={this.state.demoStyle['box-number']} options={[4, 5, 6, 7, 8, 9, 10]} updateDemoStyle={this.updateBoxNumber} />
+                                Number of boxes: <DropdownMenu value={this.state.demoStyle['box-number']} options={[2, 3, 4, 5, 6, 7, 8, 9, 10]} updateDemoStyle={this.updateBoxNumber} />
                             </div>
                             <div className="css-flex-option">
                                 Width of boxes: <DropdownMenu value={this.state.demoStyle['box-width']} options={['50px', '100px', '150px', '200px', '250px']} updateDemoStyle={this.updateBoxWidth} />

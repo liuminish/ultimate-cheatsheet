@@ -314,3 +314,36 @@ a:hover {
   color: #A60899;
   border: 2px solid #A60899;
 }
+
+/* tools */
+.tools-container-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0 auto;
+  width: 60%;
+  background-color: white;
+  border-radius: 5px;
+}
+
+.tools-container-sub {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1px;
+}
+
+.tools-img-container {
+  margin-right: 10px;
+  height: 80px;
+  width: 200px;
+}
+
+.tools-img-container img {
+  height: 100%;
+  width: 100%;
+  object-fit: scale-down;
+  object-position: left;
+  border-radius: 8px;
+}

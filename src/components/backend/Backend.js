@@ -3,6 +3,7 @@ import '../main-css.css';
 
 import BackendSql from './Backend-sql';
 import BackendNodejs from './Backend-node';
+import BackendSqlite from './Backend-sqlite'
 
 class Backend extends React.Component {
   render() {
@@ -10,6 +11,7 @@ class Backend extends React.Component {
       <div id="backend">
         <BackendNodejs />
         <BackendSql />
+        <BackendSqlite />
       </div>
     );
   }

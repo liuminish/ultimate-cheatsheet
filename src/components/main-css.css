@@ -113,6 +113,7 @@ a:hover {
   margin: 20px 0;
   padding: 10px;
   border-radius: 10px;
+  overflow: auto;
 }
 
 #cheatsheet-header {
@@ -339,6 +340,14 @@ a:hover {
   object-position: left;
 }
 
+/* backend nodejs */
+#backend-node-link a, #backend-node-link a:visited {
+  color: var(--second-acc-color)
+}
+
+#backend-node-link a:hover {
+  color: var(--second-txt-color)
+}
 
 /* backend sql styles */
 .backend-sql-expl {

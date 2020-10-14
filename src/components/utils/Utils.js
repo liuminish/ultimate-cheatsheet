@@ -51,7 +51,7 @@ class TextboxCopy extends React.Component {
 }
 
 // codemirror textbox with copy function and line numbers
-class TexboxCodeCopy extends React.Component {
+class TextboxCopyLong extends React.Component {
     render() {
         return (
             <div className="textbox-copy">
@@ -124,4 +124,4 @@ class DropdownMenu extends React.Component {
 }
 
 
-export { Textbox, TextboxCopy, TexboxCodeCopy, DivInteractive, DropdownMenu };
+export { Textbox, TextboxCopy, TextboxCopyLong, DivInteractive, DropdownMenu };

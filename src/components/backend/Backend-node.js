@@ -1,7 +1,8 @@
 import React from 'react';
+import { ExternalLink } from 'react-external-link';
 import '../main-css.css';
 
-import { TextboxCopy } from '../utils/Utils'
+import { TextboxCopyLong } from '../utils/Utils'
 
 class BackendNodejs extends React.Component {
     constructor(props) {
@@ -28,30 +29,47 @@ class BackendNodejs extends React.Component {
         <div className="section-container" id="NodeJS">
             {this.state.isCopied ? <div className="textbox-copied">Copied!</div> : null}
             <div className="section-title">
-                Backend
+                NodeJS
             </div>
             <div className="cheatsheet-column">
-                <div className="cheatsheet-subtitle">
-                    NodeJS Cheatsheet
+
+                <div className="cheatsheet-box">
+                    <p id="cheatsheet-header">Basic structure of server.js</p>
+                    <TextboxCopyLong 
+                        value={`const express = require('express');
+const app = express();
+
+const PORT = process.env.PORT || 4000;
+
+//standard middleware
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const morgan = require('morgan');
+const errorhandler = require('errorhandler');
+
+app.use(bodyParser.json());
+app.use(cors());
+app.use(morgan('dev'));
+app.use(errorhandler());
+
+//mounting apiRouter
+const apiRouter = require('./api/api');
+app.use('/api', apiRouter);
+
+app.listen(PORT, () => {
+    console.log('Server is listening on port ' + PORT);
+});
+
+module.exports = app;`}
+                    />
                 </div>
 
                 <div className="cheatsheet-box">
-                    <p id="cheatsheet-header">Create React App</p>
-                    <p><TextboxCopy explanation="To install" content="npm install create-react-app" keyword="create-react-app" copyText={this.copyText} /></p>
-                    <p><TextboxCopy explanation="To create" content="create-react-app new-app-directory" copyText={this.copyText} /></p>
-                </div>
-
-                <div className="cheatsheet-box">
-                    <p id="cheatsheet-header">Useful React Packages</p>
-                    <p><TextboxCopy explanation="React Icons" content="npm install react-icons" copyText={this.copyText} /></p>
-                    <p><TextboxCopy explanation="External Links" content="npm install react-external-link" copyText={this.copyText} /></p>
-                    <p><TextboxCopy explanation="React Router" content="npm install react-router" copyText={this.copyText} /></p>
-                </div>
-
-                <div className="cheatsheet-box">
-                    <p id="cheatsheet-header">Export and Import of Modules</p>
-                    <p><TextboxCopy explanation="Export" content="export default Module" keyword="Module" copyText={this.copyText} /></p>
-                    <p><TextboxCopy explanation="Import" content="import Module from './Module'" keyword="Module" copyText={this.copyText} /></p>
+                    <p id="cheatsheet-header">Links to middleware documentation</p>
+                    <p id="backend-node-link">Body Parser: <ExternalLink href="http://expressjs.com/en/resources/middleware/body-parser.html">Expressjs documentation</ExternalLink></p>
+                    <p id="backend-node-link">Cors: <ExternalLink href="http://expressjs.com/en/resources/middleware/cors.html">Expressjs documentation</ExternalLink></p>
+                    <p id="backend-node-link">Error Handler: <ExternalLink href="http://expressjs.com/en/resources/middleware/errorhandler.html">Expressjs documentation</ExternalLink></p>
+                    <p id="backend-node-link">Morgan: <ExternalLink href="http://expressjs.com/en/resources/middleware/morgan.html">Expressjs documentation</ExternalLink></p>
                 </div>
 
             </div>

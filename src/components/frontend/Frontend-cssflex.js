@@ -1,7 +1,7 @@
 import React from 'react';
 import '../main-css.css';
 
-import { DivInteractive, TexboxCodeCopy, Textbox, DropdownMenu } from '../utils/Utils';
+import { DivInteractive, TextboxCopyLong, Textbox, DropdownMenu } from '../utils/Utils';
 
 class FrontendCssFlex extends React.Component {
     constructor(props) {
@@ -102,7 +102,7 @@ class FrontendCssFlex extends React.Component {
         }
 
         return (
-            <div className="section-container" id="CSS">
+            <div className="section-container" id="CSS Flexbox">
                 <div className="section-title">
                     CSS Flexbox
                 </div>
@@ -171,7 +171,7 @@ class FrontendCssFlex extends React.Component {
                         </div>
 
                         <div className="cheatsheet-box">
-                            <TexboxCodeCopy 
+                            <TextboxCopyLong 
                                 value={this.state.flexTextbox} 
                                 onChange={this.updateFlexTextbox} 
                             />

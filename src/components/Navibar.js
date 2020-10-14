@@ -11,11 +11,11 @@ const menuList = [
     },
     {
         'main': 'frontend',
-        'sub': ['React','CSS','REST APIs','Using Netlify']
+        'sub': ['React','CSS Flexbox','REST APIs','Using Netlify']
     },
     {
         'main': 'backend',
-        'sub': ['NodeJS','SQL']
+        'sub': ['NodeJS','SQL','SQLite']
     },
     {
         'main':'tools',

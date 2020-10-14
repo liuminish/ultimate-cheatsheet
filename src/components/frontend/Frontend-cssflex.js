@@ -3,7 +3,7 @@ import '../main-css.css';
 
 import { DivInteractive, TexboxCodeCopy, Textbox, DropdownMenu } from '../utils/Utils';
 
-class FrontendCss extends React.Component {
+class FrontendCssFlex extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -208,4 +208,4 @@ class FrontendCss extends React.Component {
 }
 
 
-export default FrontendCss;
+export default FrontendCssFlex;

@@ -2,7 +2,7 @@ import React from 'react';
 import '../main-css.css';
 
 import FrontendReact from './Frontend-react';
-import FrontendCss from './Frontend-css';
+import FrontendCssFlex from './Frontend-cssflex';
 import FrontendRest from './Frontend-rest';
 import FrontendNetlify from './Frontend-netlify';
 
@@ -12,7 +12,7 @@ class Frontend extends React.Component {
         return (
             <div id="frontend">
                 <FrontendReact />
-                <FrontendCss />
+                <FrontendCssFlex />
                 <FrontendRest />
                 <FrontendNetlify />
             </div>

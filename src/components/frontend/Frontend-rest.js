@@ -28,12 +28,9 @@ class FrontendRest extends React.Component {
         <div className="section-container" id="REST APIs">
             {this.state.isCopied ? <div className="textbox-copied">Copied!</div> : null}
             <div className="section-title">
-                Frontend
+                REST APIs
             </div>
             <div className="cheatsheet-column">
-                <div className="cheatsheet-subtitle">
-                    REST APIs Cheatsheet
-                </div>
 
                 <div className="cheatsheet-box">
                     <p id="cheatsheet-header">Create React App</p>

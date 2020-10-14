@@ -34,59 +34,73 @@ class FrontendReact extends React.Component {
 
                 <div className="cheatsheet-box">
                     <p id="cheatsheet-header">Create React App</p>
-                    <p><TextboxCopy 
-                        explanation="To install" 
+                    <div className="frontend-react-row">
+                        <div className="frontend-react-expl">
+                            To install: 
+                        </div>
+                        <TextboxCopy 
                         content="npm install create-react-app" 
                         keyword="create-react-app" 
                         copyText={this.copyText} 
-                        width="100px"
-                    /></p>
-                    <p><TextboxCopy 
-                        explanation="To create" 
+                    /></div>
+                    <div className="frontend-react-row">
+                        <div className="frontend-react-expl">
+                            To create: 
+                        </div>
+                        <TextboxCopy 
                         content="create-react-app new-app-directory" 
-                        copyText={this.copyText} 
-                        width="100px"
-                    /></p>
+                        copyText={this.copyText}
+                    /></div>
                 </div>
 
                 <div className="cheatsheet-box">
                     <p id="cheatsheet-header">Useful React Packages</p>
-                    <p><TextboxCopy 
-                        explanation="React Icons" 
+                    <div className="frontend-react-row">
+                        <div className="frontend-react-expl">
+                            React Icons: 
+                        </div>
+                        <TextboxCopy 
                         content="npm install react-icons" 
-                        copyText={this.copyText} 
-                        width="100px"
-                    /></p>
-                    <p><TextboxCopy 
-                        explanation="External Links" 
+                        copyText={this.copyText}
+                    /></div>
+                    <div className="frontend-react-row">
+                        <div className="frontend-react-expl">
+                            External Links: 
+                        </div>
+                        <TextboxCopy
                         content="npm install react-external-link" 
-                        copyText={this.copyText} 
-                        width="100px"
-                    /></p>
-                    <p><TextboxCopy 
-                        explanation="React Router" 
+                        copyText={this.copyText}
+                    /></div>
+                    <div className="frontend-react-row">
+                        <div className="frontend-react-expl">
+                            React Router 
+                        </div>
+                        <TextboxCopy
                         content="npm install react-router" 
-                        copyText={this.copyText} 
-                        width="100px"
-                    /></p>
+                        copyText={this.copyText}
+                    /></div>
                 </div>
 
                 <div className="cheatsheet-box">
                     <p id="cheatsheet-header">Export and Import of Modules</p>
-                    <p><TextboxCopy 
-                        explanation="Export" 
+                    <div className="frontend-react-row">
+                        <div className="frontend-react-expl">
+                            Export: 
+                        </div>
+                        <TextboxCopy
                         content="export default Module" 
                         keyword="Module" 
-                        copyText={this.copyText} 
-                        width="100px"
-                    /></p>
-                    <p><TextboxCopy 
-                        explanation="Import" 
+                        copyText={this.copyText}
+                    /></div>
+                    <div className="frontend-react-row">
+                        <div className="frontend-react-expl">
+                            Import: 
+                        </div>
+                        <TextboxCopy
                         content="import Module from './Module'" 
                         keyword="Module" 
-                        copyText={this.copyText} 
-                        width="100px"
-                    /></p>
+                        copyText={this.copyText}
+                    /></div>
                 </div>
 
             </div>

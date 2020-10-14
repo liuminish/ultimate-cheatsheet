@@ -27,14 +27,11 @@ class Textbox extends React.Component {
     }
 }
 
-// codemirror textbox with explanation and copy function
+// codemirror textbox with copy function and no line numbers
 class TextboxCopy extends React.Component {
     render() {
         return (
             <div className="textbox-copy">
-                <div className="textbox-copy-expl" style={{width: this.props.width}}>
-                    {this.props.explanation}:
-                </div>
                 <CodeMirror
                     value={this.props.content}
                     options={{
@@ -53,38 +50,7 @@ class TextboxCopy extends React.Component {
     }
 }
 
-
-// codemirror textbox with detailed explanation and copy function
-class TextboxCopyDetailed extends React.Component {
-    render() {
-        return (
-            <div className="textbox-copy-detailed" style={{width: this.props.width}}>
-                <div className="textbox-copy-expl">
-                    <p id="textbox-header">{this.props.explanation}</p>
-                    <p>{this.props.explanationDetailed}</p>
-                </div>
-                <div className="textbox-copy-detailedbody">
-                    <CodeMirror
-                        value={this.props.content}
-                        options={{
-                            mode: 'javascript',
-                            theme: 'material',
-                            lineNumbers: false
-                        }}
-                    />
-                    <div className="textbox-copy-logo">
-                        <CopyToClipboard text={this.props.content} onCopy={this.props.copyText}>
-                            <RiFileCopyLine />
-                        </CopyToClipboard>
-                    </div>
-                </div>
-            </div>
-            
-        )
-    }
-}
-
-// codemirror textbox with copy function, but no explanation
+// codemirror textbox with copy function and line numbers
 class TexboxCodeCopy extends React.Component {
     render() {
         return (
@@ -158,4 +124,4 @@ class DropdownMenu extends React.Component {
 }
 
 
-export { Textbox, TextboxCopy, TexboxCodeCopy, TextboxCopyDetailed, DivInteractive, DropdownMenu };
+export { Textbox, TextboxCopy, TexboxCodeCopy, DivInteractive, DropdownMenu };

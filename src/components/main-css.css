@@ -1,3 +1,4 @@
+/* main styles */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 
 :root {
@@ -37,7 +38,7 @@ a:hover {
   font-size: 70px;
 }
 
-/* navibar */
+/* navibar styles*/
 .navibar-container-main {
   z-index: 99;
   position: fixed;
@@ -96,7 +97,7 @@ a:hover {
   font-size: 30px;
 }
 
-/* cheatsheet */
+/* cheatsheet styles */
 .cheatsheet-container {
   display: flex;
   justify-content: space-around;
@@ -127,7 +128,7 @@ a:hover {
   color: var(--third-txt-color)
 }
 
-/* copy textbox */
+/* textbox with copy styles */
 .textbox-copy-detailed {
   display: flex;
   flex-direction: column;
@@ -189,7 +190,7 @@ a:hover {
   padding: 0;
 }
 
-/* interactive div */
+/* interactive div styles */
 
 .div-inter {
   display: flex;
@@ -218,7 +219,7 @@ a:hover {
   cursor: pointer
 }
 
-/* codemirror */
+/* codemirror styes (written to overwrite existing) */
 .CodeMirror {
   height: auto !important;
   border-radius: 5px;
@@ -228,7 +229,7 @@ a:hover {
   margin-right: 0 !important;
 }
 
-/* introduction */
+/* introduction styles */
 .introduction-body {
   width: 100%;
   text-align: center;
@@ -238,7 +239,18 @@ a:hover {
   font-size: 17px
 }
 
-/* frontend */
+/* frontend react styles */
+.frontend-react-row {
+  display: flex;
+  align-items: center;
+}
+
+.frontend-react-expl {
+  width: 100px;
+}
+
+
+/* frontend flex styes*/
 .css-flex-example {
   background-color: white;
   margin: 20px 0;
@@ -315,7 +327,26 @@ a:hover {
   border: 2px solid #A60899;
 }
 
-/* tools */
+/* frontend netlify styles */
+.frontend-netlify-img-container {
+  width: 100%;
+}
+
+.frontend-netlify-img-container img {
+  height: 100%;
+  width: 100%;
+  object-fit: scale-down;
+  object-position: left;
+}
+
+
+/* backend sql styles */
+.backend-sql-expl {
+  width: 100%;
+}
+
+
+/* tools styles */
 .tools-container-main {
   display: flex;
   flex-direction: column;

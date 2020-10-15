@@ -136,6 +136,15 @@ class FrontendCssFlex extends React.Component {
             boxNumbers.push(index)   
         }
 
+        const reactFlexStyle = {
+            'display': this.state.flexStyle['display'],
+            'flexDirection': this.state.flexStyle['flex-direction'],
+            'flexWrap': this.state.flexStyle['flex-wrap'],
+            'justifyContent': this.state.flexStyle['justify-content'],
+            'alignItems': this.state.flexStyle['align-items'],
+            'alignContent': this.state.flexStyle['align-content'],
+        }
+
         return (
             <div className="section-container" id="CSS Flexbox">
                 <div className="section-title">
@@ -146,9 +155,9 @@ class FrontendCssFlex extends React.Component {
 
                         <div className="cheatsheet-box">
                             <p id="cheatsheet-header">Flex container properties</p>
-                            {flexContProp.map(prop => {
+                            {flexContProp.map((prop, index) => {
                                 return (
-                                    <p><DivInteractive 
+                                    <DivInteractive 
                                         property={prop.property} 
                                         values={prop.values} 
                                         explanation={prop.explanation}
@@ -157,21 +166,22 @@ class FrontendCssFlex extends React.Component {
                                         reset={this.resetFlexStyle}
                                         showModal={this.props.showModal}
                                         width="110px"
-                                    /></p>
+                                        key={index}
+                                    />
                                 )
                             })}
-                            <p><Textbox 
+                            <Textbox 
                                 property="flex-flow" 
-                                values="flex-direction flex-wrap" 
+                                values={`${this.state.flexStyle['flex-direction']} ${this.state.flexStyle['flex-wrap']}`} 
                                 width="110px"
-                            /></p>
+                            />
                         </div>
 
                         <div className="cheatsheet-box">
                             <p id="cheatsheet-header">Flex alignment properties</p>
-                            {flexAlignProp.map(prop => {
+                            {flexAlignProp.map((prop, index) => {
                                 return (
-                                    <p><DivInteractive 
+                                    <DivInteractive 
                                         property={prop.property} 
                                         values={prop.values} 
                                         explanation={prop.explanation}
@@ -180,7 +190,8 @@ class FrontendCssFlex extends React.Component {
                                         reset={this.resetFlexStyle}
                                         showModal={this.props.showModal}
                                         width="110px"
-                                    /></p>
+                                        key={index}
+                                    />
                                 )
                             })}
                         </div>
@@ -208,10 +219,10 @@ class FrontendCssFlex extends React.Component {
                             </div>
                         </div>
 
-                        <div className="css-flex-example" style={this.state.flexStyle}>
+                        <div className="css-flex-example" style={reactFlexStyle}>
                             {boxNumbers.map(number => {
                                 return (
-                                    <div className={"css-flex-example-div"+number} style={{height: this.state.demoStyle['box-height'], width: this.state.demoStyle['box-width']}}>box {number}</div>
+                                    <div className={"css-flex-example-div"+number} key={number}style={{height: this.state.demoStyle['box-height'], width: this.state.demoStyle['box-width']}}>box {number}</div>
                                 )
                             })}
                         </div>

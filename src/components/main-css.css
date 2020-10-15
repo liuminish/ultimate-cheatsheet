@@ -401,6 +401,14 @@ a:hover {
 }
 
 /* frontend css images styles */
+.css-img-obj-pos {
+  display: flex;
+}
+
+.css-img-obj-pos-title {
+  width: 155px;
+}
+
 .css-img-example {
   background-color: white;
   margin: 20px 0;

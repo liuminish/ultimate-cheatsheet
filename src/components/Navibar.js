@@ -55,7 +55,7 @@ class Navibar extends React.Component {
                         {menuList.map((item, index) => {
                             let nextIndex = index === menuList.length-1 ? index : index + 1;
                             return (
-                                <Link activeClass="active" to={item.main} spy={true} smooth={true} offset={0} duration={500} onSetActive={() => this.updateMenu(index, menuList[nextIndex].main)}>
+                                <Link activeClass="active" to={item.main} spy={true} smooth={true} offset={0} duration={500} onSetActive={() => this.updateMenu(index, menuList[nextIndex].main)} key={index}>
                                     <div className="navibar-item">{capitalizeFirstLetter(item.main)}</div>
                                 </Link>
                             )
@@ -65,9 +65,9 @@ class Navibar extends React.Component {
                         </Link>
                 </div>
                 <div className="navibar-container-sub">
-                        {menuList[this.state.currentIndex].sub.map(item => {
+                        {menuList[this.state.currentIndex].sub.map((item, index) => {
                             return (
-                                <Link activeClass="active" to={item} spy={true} smooth={true} offset={0} duration={500}>
+                                <Link activeClass="active" to={item} spy={true} smooth={true} offset={0} duration={500} key={index}>
                                     <div className="navibar-item-sub">{capitalizeFirstLetter(item)}</div>
                                 </Link>
                             )

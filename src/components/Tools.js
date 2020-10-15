@@ -57,9 +57,9 @@ class Tools extends React.Component {
             Tools
         </div>
         <div className="tools-container-main">
-          {toolsList.map(tool => {
+          {toolsList.map((tool, index) => {
             return (
-              <div className="tools-container-sub">
+              <div className="tools-container-sub" key={index}>
                 <div className="tools-img-container">
                   <ExternalLink href={tool.url}>
                     <img src={tool.logo} alt={tool.name} />

@@ -37,7 +37,7 @@ class FrontendNetlify extends React.Component {
                     <p id="cheatsheet-header">Step 1: Add new site</p>
                     <p>Some explanation</p>
                     <div className="frontend-netlify-img-container">
-                        <img src={netlify1} />
+                        <img src={netlify1} alt='sample' />
                     </div>
                 </div>
 
@@ -45,7 +45,7 @@ class FrontendNetlify extends React.Component {
                     <p id="cheatsheet-header">Step 2: Add new site</p>
                     <p>Some explanation</p>
                     <div className="frontend-netlify-img-container">
-                        <img src={netlify2} />
+                        <img src={netlify2} alt='sample' />
                     </div>
                 </div>
 

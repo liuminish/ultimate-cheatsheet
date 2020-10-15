@@ -65,7 +65,7 @@ class BackendSql extends React.Component {
                             <p>Select model column from cars table, where color is blue or year more than 2014.</p>
                         </div>
                         <TextboxCopy 
-                            content={`SELECT model \nFROM cars \nWHERE color = 'blue' \n\OR year > 2014;`} 
+                            content={`SELECT model \nFROM cars \nWHERE color = 'blue' \n\tOR year > 2014;`} 
                             copyText={this.props.copyText}
                         />
                     </div>

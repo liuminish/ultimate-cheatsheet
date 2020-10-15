@@ -15,8 +15,8 @@ class FrontendRest extends React.Component {
 
                 <div className="cheatsheet-box">
                     <p id="cheatsheet-header">Create React App</p>
-                    <p><TextboxCopy explanation="To install" content="npm install create-react-app" keyword="create-react-app" copyText={this.copyText} /></p>
-                    <p><TextboxCopy explanation="To create" content="create-react-app new-app-directory" copyText={this.props.copyText} /></p>
+                    <TextboxCopy explanation="To install" content="npm install create-react-app" keyword="create-react-app" copyText={this.copyText} />
+                    <TextboxCopy explanation="To create" content="create-react-app new-app-directory" copyText={this.props.copyText} />
                 </div>
 
             </div>

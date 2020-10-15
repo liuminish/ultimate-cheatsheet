@@ -86,13 +86,13 @@ class DivInteractive extends React.Component {
                         const fieldStatus = value === this.props.flexStyle[this.props.property] ? "div-inter-field-active" : "div-inter-field-inactive";
                         if (index === this.props.values.length - 1) {
                             return (    
-                                <span className={fieldStatus} id="div-inter-clickable" onClick={() => this.props.handleClick(this.props.property, value)}>
+                                <span className={fieldStatus} id="div-inter-clickable" key={index} onClick={() => this.props.handleClick(this.props.property, value)}>
                                     {value}
                                 </span>
                             )
                         } else {
                             return (    
-                                <span>
+                                <span key={index}>
                                     <span className={fieldStatus} id="div-inter-clickable" onClick={() => this.props.handleClick(this.props.property, value)}>
                                     {value} 
                                     </span>
@@ -114,7 +114,7 @@ class DivInteractive extends React.Component {
 class DropdownMenu extends React.Component {
     render() {
         return (
-            <select value={this.props.value} onChange={this.props.updateDemoStyle}>
+            <select value={this.props.value} onChange={this.props.onChange}>
             {this.props.options.map(item => {
                 return <option value={item} key={item}>{item}</option>
             })}

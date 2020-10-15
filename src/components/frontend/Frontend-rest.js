@@ -14,9 +14,7 @@ class FrontendRest extends React.Component {
             <div className="cheatsheet-column">
 
                 <div className="cheatsheet-box">
-                    <p id="cheatsheet-header">Create React App</p>
-                    <TextboxCopy explanation="To install" content="npm install create-react-app" keyword="create-react-app" copyText={this.copyText} />
-                    <TextboxCopy explanation="To create" content="create-react-app new-app-directory" copyText={this.props.copyText} />
+                    <p id="cheatsheet-header">Coming soon</p>
                 </div>
 
             </div>

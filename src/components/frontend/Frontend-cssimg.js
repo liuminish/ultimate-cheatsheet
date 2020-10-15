@@ -63,7 +63,7 @@ class FrontendCssImg extends React.Component {
                 'image-rendering': 'auto',
                 'filter': null
             },
-            imgTextbox: `.img-container {\n\theight: 300px;\n\twidth: 500px\n}\n\n.img-container img {\n\theight: 100%;\n\twidth: 100%;\n\tobject-fit: fill;\n\tobject-position: 50% 50%;\n\timage-rendering: auto;\n\tfilter: null\n}`
+            imgTextbox: `.img-container {\n\theight: 300px;\n\twidth: 500px\n}\n\n.img-container img {\n\theight: 100%;\n\twidth: 100%;\n\tobject-fit: fill;\n\tobject-position: 50% 50%;\n\timage-rendering: auto;\n}`
             
         }
 
@@ -172,6 +172,9 @@ class FrontendCssImg extends React.Component {
         newFilter.selected.type = e.target.value
 
         switch (e.target.value) {
+            case 'none':
+                newFilter.selected.option = 'none'
+                break;
             case 'blur':
                 newFilter.selected.option = '0px'
                 break;
@@ -270,7 +273,13 @@ class FrontendCssImg extends React.Component {
                 break;
         }
 
-        await this.setState({filter: newFilter}) 
+        let newImgStyle = {...this.state.imgStyle}
+        newImgStyle.filter = `${this.state.filter.selected.type}(${this.state.filter.selected.option})`
+
+        await this.setState({
+            filter: newFilter,
+            imgStyle: newImgStyle
+        }) 
 
         this.updateImgTextbox();
     }
@@ -291,7 +300,12 @@ class FrontendCssImg extends React.Component {
 
     updateImgTextbox() {
         const {imgStyle, imgContStyle} = this.state;
-        const newImgTextbox = `.img-container {\n\theight: ${imgContStyle['height']};\n\twidth: ${imgContStyle['width']}\n}\n\n.img-container img {\n\theight: ${imgStyle['height']};\n\twidth: ${imgStyle['width']};\n\tobject-fit: ${imgStyle['object-fit']};\n\tobject-position: ${imgStyle['object-position']};\n\timage-rendering: ${imgStyle['image-rendering']};\n\tfilter: ${imgStyle['filter']}\n}`
+        let newImgTextbox = ''
+        if (this.state.filter.selected.type === 'none') {
+        newImgTextbox = `.img-container {\n\theight: ${imgContStyle['height']};\n\twidth: ${imgContStyle['width']}\n}\n\n.img-container img {\n\theight: ${imgStyle['height']};\n\twidth: ${imgStyle['width']};\n\tobject-fit: ${imgStyle['object-fit']};\n\tobject-position: ${imgStyle['object-position']};\n\timage-rendering: ${imgStyle['image-rendering']};\n}`
+        } else {
+            newImgTextbox = `.img-container {\n\theight: ${imgContStyle['height']};\n\twidth: ${imgContStyle['width']}\n}\n\n.img-container img {\n\theight: ${imgStyle['height']};\n\twidth: ${imgStyle['width']};\n\tobject-fit: ${imgStyle['object-fit']};\n\tobject-position: ${imgStyle['object-position']};\n\timage-rendering: ${imgStyle['image-rendering']};\n\tfilter: ${imgStyle['filter']}\n}`
+        }
 
         this.setState({
             imgTextbox: newImgTextbox
@@ -353,7 +367,7 @@ class FrontendCssImg extends React.Component {
                             />
 
                             <div className="css-img-obj-pos">
-                                <div className="css-img-obj-pos-title" id="div-inter-clickable" onClick={() => this.props.showModal('object-position', `The object-position CSS property specifies the alignment of the selected replaced element's contents within the element's box. Areas of the box which aren't covered by the replaced element's object will show the element's background.`)}>object-position:</div>
+                                <div className="css-img-obj-pos-title" id="div-inter-clickable" onClick={() => this.props.showModal('filter', `The filter property defines visual effects (like blur and saturation) to an element (often <img>).`)}>filter:</div>
                                 <div>
                                     <DropdownMenu value={this.state.filter.selected.type} options={Object.keys(this.state.filter.choices)} onChange={this.updateFilterType} />
                                     <DropdownMenu value={this.state.filter.selected.option} options={this.state.filter.choices[this.state.filter.selected.type]} onChange={this.updateFilterOption} />
@@ -383,7 +397,7 @@ class FrontendCssImg extends React.Component {
                                     Container height: <DropdownMenu value={this.state.imgContStyle['height']} options={['100px', '200px','300px','400px','500px']} onChange={this.updateImgContHeight} />
                                 </div>
                                 <div className="css-img-option">
-                                    Container width: <DropdownMenu value={this.state.imgContStyle['width']} options={['300px', '400px','500px','600px']} onChange={this.updateImgContWidth} />
+                                    Container width: <DropdownMenu value={this.state.imgContStyle['width']} options={['300px', '400px','500px','600px','700px']} onChange={this.updateImgContWidth} />
                                 </div>
                             </div>
                             <div className="css-img-container" style={this.state.imgContStyle}>

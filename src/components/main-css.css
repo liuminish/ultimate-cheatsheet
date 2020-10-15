@@ -326,8 +326,9 @@ a:hover {
   position: fixed;
   top: 50%;
   left: 50%;
-  width: 90%;
+  max-height: 80%;
   min-width: 200px;
+  background: white;
   transform: translate(-50%,-50%);
   border-radius: 5px;
 }
@@ -341,10 +342,14 @@ a:hover {
   height: 100%;
   width: 100%;
   object-fit: contain;
+  border-radius: 5px;
 }
 
 .modal-img-title {
   z-index: 6;
+  padding: 10px;
+  opacity: 0.8;
+  background-color: var(--second-acc-color);
   color: var(--main-bg-color)
 }
 
@@ -390,6 +395,7 @@ a:hover {
 .introduction-body {
   margin: 0 auto;
   width: 80%;
+  text-align: center;
 }
 
 #introduction-logo {
@@ -406,8 +412,7 @@ a:hover {
   width: 100px;
 }
 
-
-/* frontend flex styes*/
+/* frontend flex styles */
 .css-flex-example {
   background-color: white;
   margin: 20px 0;
@@ -524,6 +529,10 @@ a:hover {
   width: 100%;
   object-fit: scale-down;
   object-position: left;
+}
+
+#netlify-explanation {
+  margin: 10px 0;
 }
 
 /* backend nodejs */

@@ -6,7 +6,7 @@ import Introduction from './Introduction';
 import Frontend from './frontend/Frontend';
 import Backend from './backend/Backend';
 import Tools from './Tools';
-import { Copied, Modal, ModalImage } from './utils/Utils'
+import { Copied, Modal, ModalImage, NotSupported } from './utils/Utils'
 
 
 import { RiInformationLine } from "react-icons/ri";
@@ -97,47 +97,53 @@ class App extends React.Component {
   }
 
   render() {
-    return (
-      <div>
-        <Copied 
-          isCopied={this.state.isCopied}
-        />
-        <Modal 
-          display={this.state.modal.display}
-          icon={this.state.modal.icon}
-          title={this.state.modal.title}
-          content={this.state.modal.content}
-          button={this.state.modal['button-content']}
-          handleClose={this.closeModal}
-        />
-        <ModalImage
-          display={this.state.modalImage.display}
-          title={this.state.modalImage.title}
-          src={this.state.modalImage.src}
-          alt={this.state.modalImage.alt}
-          handleClose={this.closeModalImage}
-        />
-        <Navibar />
-        <Introduction 
-          title="introduction"
-        />
-        <Frontend 
-          title="frontend"
-          copyText={this.copyText}
-          showModal={this.showModal}
-          showModalImage={this.showModalImage} 
-        />
-        <Backend 
-          title="backend"
-          copyText={this.copyText}
-          showModal={this.showModal}
-        />
-        <Tools 
-          title="tools"
-        />
-      </div>
-    )
+
+    if (window.innerWidth < 500) {
+      return <NotSupported />
+    } else {
+      return (
+        <div>
+          <Copied 
+            isCopied={this.state.isCopied}
+          />
+          <Modal 
+            display={this.state.modal.display}
+            icon={this.state.modal.icon}
+            title={this.state.modal.title}
+            content={this.state.modal.content}
+            button={this.state.modal['button-content']}
+            handleClose={this.closeModal}
+          />
+          <ModalImage
+            display={this.state.modalImage.display}
+            title={this.state.modalImage.title}
+            src={this.state.modalImage.src}
+            alt={this.state.modalImage.alt}
+            handleClose={this.closeModalImage}
+          />
+          <Navibar />
+          <Introduction 
+            title="introduction"
+          />
+          <Frontend 
+            title="frontend"
+            copyText={this.copyText}
+            showModal={this.showModal}
+            showModalImage={this.showModalImage} 
+          />
+          <Backend 
+            title="backend"
+            copyText={this.copyText}
+            showModal={this.showModal}
+          />
+          <Tools 
+            title="tools"
+          />
+        </div>
+      )
+    }
   }
+    
 }
 
 export default App;

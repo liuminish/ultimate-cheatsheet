@@ -38,6 +38,12 @@ a:hover {
   font-size: 70px;
 }
 
+@media only screen and (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+}
+
 /* navibar styles*/
 .navibar-container-main {
   z-index: 99;
@@ -95,6 +101,17 @@ a:hover {
 #arrow-logo {
   padding: 5px 40px;
   font-size: 30px;
+}
+
+@media only screen and (max-width: 768px) {
+  #arrow-logo {
+    padding: 8px 40px;
+    font-size: 20px;
+  }
+
+  .navibar-container-sub {
+    top: 41px
+  }
 }
 
 /* cheatsheet styles */
@@ -345,6 +362,20 @@ a:hover {
   cursor: pointer;
 }
 
+/* not supported styles */
+.mobile-icon {
+  margin: 0 auto;
+  padding: 10px;
+  text-align: center;
+  font-size: 80px;
+}
+
+.mobile-content {
+  margin: 0 auto;
+  width : 80%;
+}
+
+
 /* codemirror styes (written to overwrite existing) */
 .CodeMirror {
   height: auto !important;
@@ -357,8 +388,8 @@ a:hover {
 
 /* introduction styles */
 .introduction-body {
-  width: 100%;
-  text-align: center;
+  margin: 0 auto;
+  width: 80%;
 }
 
 #introduction-logo {

@@ -32,6 +32,25 @@ class FrontendCssImg extends React.Component {
                 }
                 
             },
+            filter: {
+                'selected': {
+                    'type': 'none',
+                    'option': 'none'
+                },
+                'choices': {
+                    'none':['none'],
+                    'blur': ['0px','1px','2px','3px','4px'],
+                    'brightness': ['0%','50%','100%','150%','200%'],
+                    'contrast': ['0%','50%','100%','150%','200%'],
+                    'grayscale': ['0%','20%','40%','60%','80%','100%'],
+                    'hue-rotate': ['0deg','60deg','120deg','180deg'],
+                    'invert': ['0%','25%','50%','75%','100%'],
+                    'opacity': ['0%','25%','50%','75%','100%'],
+                    'saturate': [0,2,4,6,8,10],
+                    'sepia': ['0%','25%','50%','75%','100%'],
+                    'drop-shadow': ['0px 0px 0px red','0px 5px 5px red','5px 0px 5px blue','5px 5px 5px 0px green','5px 5px 5px green']
+                }
+            },
             imgContStyle: {
                 'height': '300px',
                 'width': '500px'
@@ -41,9 +60,10 @@ class FrontendCssImg extends React.Component {
                 'width': '100%',
                 'object-fit': 'fill',
                 'object-position': '50% 50%',
-                'image-rendering': 'auto'
+                'image-rendering': 'auto',
+                'filter': null
             },
-            imgTextbox: `.img-container {\n\theight: 300px;\n\twidth: 500px\n}\n\n.img-container img {\n\theight: 100%;\n\twidth: 100%;\n\tobject-fit: fill;\n\tobject-position: 50% 50%;\n\timage-rendering: auto\n}`
+            imgTextbox: `.img-container {\n\theight: 300px;\n\twidth: 500px\n}\n\n.img-container img {\n\theight: 100%;\n\twidth: 100%;\n\tobject-fit: fill;\n\tobject-position: 50% 50%;\n\timage-rendering: auto;\n\tfilter: null\n}`
             
         }
 
@@ -55,6 +75,10 @@ class FrontendCssImg extends React.Component {
         this.updateObjPosX = this.updateObjPosX.bind(this)
         this.updateObjPosY = this.updateObjPosY.bind(this)
         this.resetObjPos = this.resetObjPos.bind(this)
+
+        this.updateFilterType = this.updateFilterType.bind(this)
+        this.updateFilterOption = this.updateFilterOption.bind(this)
+        this.resetFilter = this.resetFilter.bind(this)
 
         this.updateImgContHeight = this.updateImgContHeight.bind(this)
         this.updateImgContWidth = this.updateImgContWidth.bind(this)
@@ -74,9 +98,6 @@ class FrontendCssImg extends React.Component {
             case 'object-fit':
                 newImgStyle[property] = 'fill'
                 break;
-            case 'object-position':
-                newImgStyle[property] = '50% 50%'
-                break;
             case 'image-rendering':
                 newImgStyle[property] = 'auto'
                 break;
@@ -87,7 +108,7 @@ class FrontendCssImg extends React.Component {
         this.updateImgTextbox();
     }
 
-    updateObjPosType(e) {
+    async updateObjPosType(e) {
         let newObjectPosition = {...this.state.objectPosition}
         newObjectPosition.selected.type = e.target.value
         newObjectPosition.selected['x-axis'] = this.state.objectPosition.choices[e.target.value]['x-axis'][0]
@@ -96,46 +117,162 @@ class FrontendCssImg extends React.Component {
         let newImgStyle = {...this.state.imgStyle}
         newImgStyle['object-position'] = this.state.objectPosition.selected['x-axis'] + ' ' + this.state.objectPosition.selected['y-axis'] 
 
-        this.setState({
+        await this.setState({
             objectPosition: newObjectPosition,
             imgStyle: newImgStyle
         })
+
+        this.updateImgTextbox();
     }
 
-    updateObjPosX(e) {
+    async updateObjPosX(e) {
         let newObjectPosition = {...this.state.objectPosition}
         newObjectPosition.selected['x-axis'] = e.target.value
 
         let newImgStyle = {...this.state.imgStyle}
         newImgStyle['object-position'] = e.target.value + ' ' + this.state.objectPosition.selected['y-axis']
 
-        this.setState({
+        await this.setState({
             objectPosition: newObjectPosition,
             imgStyle: newImgStyle
         })
+
+        this.updateImgTextbox();
     }
 
-    updateObjPosY(e) {
+    async updateObjPosY(e) {
         let newObjectPosition = {...this.state.objectPosition}
         newObjectPosition.selected['y-axis'] = e.target.value
 
         let newImgStyle = {...this.state.imgStyle}
         newImgStyle['object-position'] = this.state.objectPosition.selected['x-axis'] + ' ' + e.target.value 
 
-        this.setState({
+        await this.setState({
             objectPosition: newObjectPosition,
             imgStyle: newImgStyle
         })
+
+        this.updateImgTextbox();
     }
 
-    resetObjPos() {
+    async resetObjPos() {
         let newObjectPosition = {...this.state.objectPosition}
         newObjectPosition.selected = {
             'type': 'percent',
             'x-axis': '50%',
             'y-axis': '50%'
         }
-        this.setState({objectPosition: newObjectPosition})
+        await this.setState({objectPosition: newObjectPosition})
+
+        this.updateImgTextbox();
+    }
+
+    async updateFilterType(e) {
+        let newFilter = {...this.state.filter}
+        newFilter.selected.type = e.target.value
+
+        switch (e.target.value) {
+            case 'blur':
+                newFilter.selected.option = '0px'
+                break;
+            case 'brightness':
+                newFilter.selected.option = '100%'
+                break;
+            case 'contrast':
+                newFilter.selected.option = '100%'
+                break;
+            case 'grayscale':
+                newFilter.selected.option = '0%'
+                break;
+            case 'hue-rotate':
+                newFilter.selected.option = '0deg'
+                break;
+            case 'invert':
+                newFilter.selected.option = '0%'
+                break;
+            case 'opacity':
+                newFilter.selected.option = '100%'
+                break;
+            case 'saturate':
+                newFilter.selected.option = '1'
+                break;
+            case 'sepia':
+                newFilter.selected.option = '0%'
+                break;
+            case 'drop-shadow':
+                newFilter.selected.option = '0px 0px 0px red'
+                break;
+            default:
+                break;
+        }
+
+        let newImgStyle = {...this.state.imgStyle}
+        newImgStyle.filter = `${this.state.filter.selected.type}(${this.state.filter.selected.option})`
+
+        await this.setState({
+            filter: newFilter,
+            imgStyle: newImgStyle
+        }) 
+
+        this.updateImgTextbox();
+    }
+
+    async updateFilterOption(e) {
+        let newFilter = {...this.state.filter}
+        newFilter.selected.option = e.target.value
+
+        let newImgStyle = {...this.state.imgStyle}
+        newImgStyle.filter = `${this.state.filter.selected.type}(${this.state.filter.selected.option})`
+
+        await this.setState({
+            filter: newFilter,
+            imgStyle: newImgStyle
+        }) 
+
+        this.updateImgTextbox();
+    }
+
+    async resetFilter(type) {
+        let newFilter = {...this.state.filter}
+        
+        switch (type) {
+            case 'blur':
+                newFilter.selected.option = '0px'
+                break;
+            case 'brightness':
+                newFilter.selected.option = '100%'
+                break;
+            case 'contrast':
+                newFilter.selected.option = '100%'
+                break;
+            case 'grayscale':
+                newFilter.selected.option = '0%'
+                break;
+            case 'hue-rotate':
+                newFilter.selected.option = '0deg'
+                break;
+            case 'invert':
+                newFilter.selected.option = '0%'
+                break;
+            case 'opacity':
+                newFilter.selected.option = '100%'
+                break;
+            case 'saturate':
+                newFilter.selected.option = '1'
+                break;
+            case 'sepia':
+                newFilter.selected.option = '0%'
+                break;
+            case 'drop-shadow':
+                newFilter.selected.option = '0px 0px 0px red'
+                break;
+            default:
+                break;
+        }
+
+        await this.setState({filter: newFilter}) 
+
+        this.updateImgTextbox();
     }
 
     async updateImgContHeight(e) {
@@ -154,7 +291,7 @@ class FrontendCssImg extends React.Component {
 
     updateImgTextbox() {
         const {imgStyle, imgContStyle} = this.state;
-        const newImgTextbox = `.img-container {\n\theight: ${imgContStyle['height']};\n\twidth: ${imgContStyle['width']}\n}\n\n.img-container img {\n\theight: ${imgStyle['height']};\n\twidth: ${imgStyle['width']};\n\tobject-fit: ${imgStyle['object-fit']};\n\tobject-position: ${imgStyle['object-position']};\n\timage-rendering: ${imgStyle['image-rendering']};\n}`
+        const newImgTextbox = `.img-container {\n\theight: ${imgContStyle['height']};\n\twidth: ${imgContStyle['width']}\n}\n\n.img-container img {\n\theight: ${imgStyle['height']};\n\twidth: ${imgStyle['width']};\n\tobject-fit: ${imgStyle['object-fit']};\n\tobject-position: ${imgStyle['object-position']};\n\timage-rendering: ${imgStyle['image-rendering']};\n\tfilter: ${imgStyle['filter']}\n}`
 
         this.setState({
             imgTextbox: newImgTextbox
@@ -167,7 +304,8 @@ class FrontendCssImg extends React.Component {
             'width': '100%',
             'objectFit': this.state.imgStyle['object-fit'],
             'objectPosition': this.state.imgStyle['object-position'],
-            'imageRendering': this.state.imgStyle['image-rendering']
+            'imageRendering': this.state.imgStyle['image-rendering'],
+            'filter': this.state.imgStyle['filter']
         }
 
         return (
@@ -213,6 +351,15 @@ class FrontendCssImg extends React.Component {
                                 reset={this.resetImgStyle}
                                 width="150px"
                             />
+
+                            <div className="css-img-obj-pos">
+                                <div className="css-img-obj-pos-title" id="div-inter-clickable" onClick={() => this.props.showModal('object-position', `The object-position CSS property specifies the alignment of the selected replaced element's contents within the element's box. Areas of the box which aren't covered by the replaced element's object will show the element's background.`)}>object-position:</div>
+                                <div>
+                                    <DropdownMenu value={this.state.filter.selected.type} options={Object.keys(this.state.filter.choices)} onChange={this.updateFilterType} />
+                                    <DropdownMenu value={this.state.filter.selected.option} options={this.state.filter.choices[this.state.filter.selected.type]} onChange={this.updateFilterOption} />
+                                    &nbsp;<RiRefreshLine id="div-inter-clickable" onClick={() => this.resetFilter(this.state.filter.selected.type)}/>
+                                </div>
+                            </div>
 
                         </div>
 

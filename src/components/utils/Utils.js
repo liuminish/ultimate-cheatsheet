@@ -2,7 +2,7 @@ import React from 'react';
 import '../main-css.css';
 
 import { CopyToClipboard } from 'react-copy-to-clipboard';
-import { RiFileCopyLine, RiRefreshLine, RiCloseCircleFill } from "react-icons/ri";
+import { RiFileCopyLine, RiRefreshLine, RiCloseCircleFill, RiHammerLine } from "react-icons/ri";
 
 import {Controlled as CodeMirror} from 'react-codemirror2';
 import 'codemirror/lib/codemirror.css';
@@ -173,5 +173,16 @@ class Copied extends React.Component {
     }
 }
 
+class NotSupported extends React.Component {
+    render() {
+        return (
+            <div className="section-container">
+                <p className="mobile-icon"><RiHammerLine /></p>
+                <p className="mobile-content">Sorry! This website is not available for viewing on small devices yet. Please use view it on a laptop!</p>
+            </div>
+        )
+    }
+}
 
-export { Textbox, TextboxCopy, TextboxCopyLong, DivInteractive, DropdownMenu, Modal, ModalImage, Copied };
+
+export { Textbox, TextboxCopy, TextboxCopyLong, DivInteractive, DropdownMenu, Modal, ModalImage, Copied, NotSupported };

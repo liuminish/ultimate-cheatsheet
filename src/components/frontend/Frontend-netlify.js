@@ -28,9 +28,9 @@ class FrontendNetlify extends React.Component {
                 Using Netlify
             </div>
             <div className="cheatsheet-column">
-                {netlify.map(instruction => {
+                {netlify.map((instruction, index) => {
                     return (
-                        <div className="cheatsheet-box">
+                        <div className="cheatsheet-box" key={index}>
                             <p id="cheatsheet-header">{instruction.title}</p>
                             <p>{instruction.explanation}</p>
                             <div className="frontend-netlify-img-container" id="div-inter-clickable">

@@ -209,13 +209,13 @@ class FrontendCssFlex extends React.Component {
 
                         <div className="css-flex-options">
                             <div className="css-flex-option">
-                                Number of boxes: <DropdownMenu value={this.state.demoStyle['box-number']} options={[2, 3, 4, 5, 6, 7, 8, 9, 10]} updateDemoStyle={this.updateBoxNumber} />
+                                Number of boxes: <DropdownMenu value={this.state.demoStyle['box-number']} options={[2, 3, 4, 5, 6, 7, 8, 9, 10]} onChange={this.updateBoxNumber} />
                             </div>
                             <div className="css-flex-option">
-                                Width of boxes: <DropdownMenu value={this.state.demoStyle['box-width']} options={['50px', '100px', '150px', '200px', '250px']} updateDemoStyle={this.updateBoxWidth} />
+                                Width of boxes: <DropdownMenu value={this.state.demoStyle['box-width']} options={['50px', '100px', '150px', '200px', '250px']} onChange={this.updateBoxWidth} />
                             </div>
                             <div className="css-flex-option">
-                                Height of boxes: <DropdownMenu value={this.state.demoStyle['box-height']} options={['50px', '100px', '150px', '200px', '250px']} updateDemoStyle={this.updateBoxHeight} />
+                                Height of boxes: <DropdownMenu value={this.state.demoStyle['box-height']} options={['50px', '100px', '150px', '200px', '250px']} onChange={this.updateBoxHeight} />
                             </div>
                         </div>
 

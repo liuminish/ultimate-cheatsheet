@@ -32,7 +32,7 @@ class Navibar extends React.Component {
 
         this.state = {
             currentIndex: 0,
-            nextElement: menuList[1]
+            nextElement: menuList[1].main
         }
 
         this.updateMenu = this.updateMenu.bind(this);

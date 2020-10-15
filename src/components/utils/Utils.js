@@ -145,13 +145,16 @@ class ModalImage extends React.Component {
         const modalDisplay = { display: this.props.display ? "block" : "none" };
         return (
         <div className="modal-main" style={modalDisplay}>
-            <div className="modal-background" onClick={this.props.handleClose} />
+            <div className="modal-img-background" onClick={this.props.handleClose} />
             <div className="modal-img-content">
                 <div className="modal-img-container">
                     <img src={this.props.src} alt={this.props.alt} />
                 </div>
                 <div className="modal-close" onClick={this.props.handleClose}>
                     <RiCloseCircleFill />
+                </div>
+                <div className="modal-img-title">
+                    {this.props.title}
                 </div>
             </div>
         </div>

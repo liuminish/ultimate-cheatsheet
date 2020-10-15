@@ -293,6 +293,17 @@ a:hover {
 }
 
 /* style for modal image */
+.modal-img-background {
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  opacity: 0.8;
+}
+
 .modal-img-content {
   z-index: 6;
   position: fixed;
@@ -313,6 +324,11 @@ a:hover {
   height: 100%;
   width: 100%;
   object-fit: contain;
+}
+
+.modal-img-title {
+  z-index: 6;
+  color: var(--main-bg-color)
 }
 
 .modal-close {

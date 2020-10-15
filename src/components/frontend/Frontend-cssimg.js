@@ -184,14 +184,16 @@ class FrontendCssImg extends React.Component {
                             <DivInteractive 
                                 property="object-fit" 
                                 values={['fill', 'contain', 'cover', 'none', 'scale-down']} 
-                                flexStyle={this.state.imgStyle} 
+                                explanation='The CSS object-fit property is used to specify how an <img> or <video> should be resized to fit its container.'
+                                flexStyle={this.state.imgStyle}
+                                showModal={this.props.showModal}
                                 handleClick={this.updateImgStyle} 
                                 reset={this.resetImgStyle}
                                 width="150px"
                             />
 
                             <div className="css-img-obj-pos">
-                                <div className="css-img-obj-pos-title">object-position:</div>
+                                <div className="css-img-obj-pos-title" id="div-inter-clickable" onClick={() => this.props.showModal('object-position', `The object-position CSS property specifies the alignment of the selected replaced element's contents within the element's box. Areas of the box which aren't covered by the replaced element's object will show the element's background.`)}>object-position:</div>
                                 <div>
                                     <DropdownMenu value={this.state.objectPosition.selected.type} options={Object.keys(this.state.objectPosition.choices)} onChange={this.updateObjPosType} />
                                     &nbsp;&nbsp;x-axis: <DropdownMenu value={this.state.objectPosition.selected['x-axis']} options={this.state.objectPosition.choices[this.state.objectPosition.selected.type]['x-axis']} onChange={this.updateObjPosX} />
@@ -202,8 +204,11 @@ class FrontendCssImg extends React.Component {
 
                             <DivInteractive 
                                 property="image-rendering" 
-                                values={['auto', 'crisp-edges', 'pixelated']} 
+                                values={['auto', 'crisp-edges', 'pixelated']}
+                                explanation='The image-rendering CSS property sets an image scaling algorithm. The property applies to an element itself, to any images set in its other properties, and to its descendants.'
                                 flexStyle={this.state.imgStyle} 
+
+                                showModal={this.props.showModal}
                                 handleClick={this.updateImgStyle} 
                                 reset={this.resetImgStyle}
                                 width="150px"

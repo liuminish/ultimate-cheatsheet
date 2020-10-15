@@ -25,6 +25,7 @@ class App extends React.Component {
       },
       modalImage : {
         'display': false,
+        'title': '',
         'src': '',
         'alt': ''
       }
@@ -73,9 +74,10 @@ class App extends React.Component {
     this.setState({modal: newModal})
   }
 
-  showModalImage(src, alt) {
+  showModalImage(title, src, alt) {
     let newModalImage ={
       'display': true,
+      'title': title,
       'src': src,
       'alt': alt
     }
@@ -86,6 +88,7 @@ class App extends React.Component {
   closeModalImage() {
     let newModalImage ={
       'display': false,
+      'title': '',
       'src': '',
       'alt': ''
     }
@@ -109,6 +112,7 @@ class App extends React.Component {
         />
         <ModalImage
           display={this.state.modalImage.display}
+          title={this.state.modalImage.title}
           src={this.state.modalImage.src}
           alt={this.state.modalImage.alt}
           handleClose={this.closeModalImage}

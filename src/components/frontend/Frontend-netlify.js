@@ -34,7 +34,7 @@ class FrontendNetlify extends React.Component {
                             <p id="cheatsheet-header">{instruction.title}</p>
                             <p>{instruction.explanation}</p>
                             <div className="frontend-netlify-img-container" id="div-inter-clickable">
-                                <img src={instruction.src} alt={instruction.alt} onClick={() => this.props.showModalImage(instruction.src, instruction.alt)}/>
+                                <img src={instruction.src} alt={instruction.alt} onClick={() => this.props.showModalImage(instruction.title, instruction.src, instruction.alt)}/>
                             </div>
                         </div>
                     )

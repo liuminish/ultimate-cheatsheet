@@ -3,6 +3,42 @@ import '../main-css.css';
 
 import { DivInteractive, TextboxCopyLong, Textbox, DropdownMenu } from '../utils/Utils';
 
+const flexContProp = [
+    {
+        'property': 'display',
+        'values': ['block', 'flex'],
+        'explanation': 'This defines a flex container; inline or block depending on the given value. It enables a flex context for all its direct children.'
+    },
+    {
+        'property': 'flex-direction',
+        'values': ['row', 'row-reverse', 'column', 'column-reverse'],
+        'explanation': 'This establishes the main-axis, thus defining the direction flex items are placed in the flex container. Flexbox is (aside from optional wrapping) a single-direction layout concept. Think of flex items as primarily laying out either in horizontal rows or vertical columns.'
+    },
+    {
+        'property': 'flex-wrap',
+        'values': ['wrap', 'nowrap', 'wrap-reverse'],
+        'explanation': 'By default, flex items will all try to fit onto one line. You can change that and allow the items to wrap as needed with this property.'
+    }
+]
+
+const flexAlignProp = [
+    {
+        'property': 'justify-content',
+        'values': ['flex-start', 'flex-end', 'center', 'space-around', 'space-between', 'space-evenly'],
+        'explanation': 'This defines the alignment along the main axis. It helps distribute extra free space leftover when either all the flex items on a line are inflexible, or are flexible but have reached their maximum size. It also exerts some control over the alignment of items when they overflow the line.'
+    },
+    {
+        'property': 'align-items',
+        'values': ['flex-start', 'flex-end', 'center', 'stretch', 'baseline'],
+        'explanation': 'This defines the default behavior for how flex items are laid out along the cross axis on the current line. Think of it as the justify-content version for the cross-axis (perpendicular to the main-axis).'
+    },
+    {
+        'property': 'align-content',
+        'values': ['flex-start', 'flex-end', 'center', 'stretch', 'space-around', 'space-between'],
+        'explanation': 'This aligns a flex container’s lines within when there is extra space in the cross-axis, similar to how justify-content aligns individual items within the main-axis. Note: this property has no effect when there is only one line of flex items.'
+    }
+]
+
 class FrontendCssFlex extends React.Component {
     constructor(props) {
         super(props)
@@ -20,7 +56,7 @@ class FrontendCssFlex extends React.Component {
                 'box-width': '100px',
                 'box-height': '100px'
             },
-            flexTextbox: `.parent {\n\tdisplay: flex;\n\tflex-direction: row;\n\tflex-wrap: wrap;\n\tjustify-content: flex-start;\n\talign-items: flex-start;\n\talign-content: flex-start;\n}` 
+            flexTextbox: `.parent {\n\tdisplay: flex;\n\tflex-direction: row;\n\tflex-wrap: wrap;\n\tjustify-content: flex-start;\n\talign-items: flex-start;\n\talign-content: flex-start;\n}`,
         }
 
         this.updateFlexStyle = this.updateFlexStyle.bind(this)
@@ -110,30 +146,20 @@ class FrontendCssFlex extends React.Component {
 
                         <div className="cheatsheet-box">
                             <p id="cheatsheet-header">Flex container properties</p>
-                            <p><DivInteractive 
-                                property="display" 
-                                values={['block', 'flex']} 
-                                flexStyle={this.state.flexStyle} 
-                                handleClick={this.updateFlexStyle} 
-                                reset={this.resetFlexStyle}
-                                width="110px"
-                            /></p>
-                            <p><DivInteractive 
-                                property="flex-direction" 
-                                values={['row', 'row-reverse', 'column', 'column-reverse']} 
-                                flexStyle={this.state.flexStyle} 
-                                handleClick={this.updateFlexStyle} 
-                                reset={this.resetFlexStyle}
-                                width="110px"
-                            /></p>
-                            <p><DivInteractive 
-                                property="flex-wrap" 
-                                values={['wrap', 'nowrap', 'wrap-reverse']} 
-                                flexStyle={this.state.flexStyle} 
-                                handleClick={this.updateFlexStyle}  
-                                reset={this.resetFlexStyle} 
-                                width="110px"
-                            /></p>
+                            {flexContProp.map(prop => {
+                                return (
+                                    <p><DivInteractive 
+                                        property={prop.property} 
+                                        values={prop.values} 
+                                        explanation={prop.explanation}
+                                        flexStyle={this.state.flexStyle} 
+                                        handleClick={this.updateFlexStyle} 
+                                        reset={this.resetFlexStyle}
+                                        showModal={this.props.showModal}
+                                        width="110px"
+                                    /></p>
+                                )
+                            })}
                             <p><Textbox 
                                 property="flex-flow" 
                                 values="flex-direction flex-wrap" 
@@ -143,30 +169,20 @@ class FrontendCssFlex extends React.Component {
 
                         <div className="cheatsheet-box">
                             <p id="cheatsheet-header">Flex alignment properties</p>
-                            <p><DivInteractive 
-                                property="justify-content" 
-                                values={['flex-start', 'flex-end', 'center', 'space-around', 'space-between', 'space-evenly']} 
-                                flexStyle={this.state.flexStyle} 
-                                handleClick={this.updateFlexStyle} 
-                                reset={this.resetFlexStyle}
-                                width="110px"
-                            /></p>
-                            <p><DivInteractive 
-                                property="align-items" 
-                                values={['flex-start', 'flex-end', 'center', 'stretch', 'baseline']} 
-                                flexStyle={this.state.flexStyle} 
-                                handleClick={this.updateFlexStyle} 
-                                reset={this.resetFlexStyle} 
-                                width="110px"
-                            /></p>
-                            <p><DivInteractive 
-                                property="align-content" 
-                                values={['flex-start', 'flex-end', 'center', 'stretch', 'space-around', 'space-between']} 
-                                flexStyle={this.state.flexStyle} 
-                                handleClick={this.updateFlexStyle} 
-                                reset={this.resetFlexStyle}
-                                width="110px"
-                            /></p>
+                            {flexAlignProp.map(prop => {
+                                return (
+                                    <p><DivInteractive 
+                                        property={prop.property} 
+                                        values={prop.values} 
+                                        explanation={prop.explanation}
+                                        flexStyle={this.state.flexStyle} 
+                                        handleClick={this.updateFlexStyle} 
+                                        reset={this.resetFlexStyle}
+                                        showModal={this.props.showModal}
+                                        width="110px"
+                                    /></p>
+                                )
+                            })}
                         </div>
 
                         <div className="cheatsheet-box">

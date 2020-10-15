@@ -12,10 +12,20 @@ class Frontend extends React.Component {
     render() {
         return (
             <div id="frontend">
-                <FrontendReact copyText={this.props.copyText} />
-                <FrontendCssFlex copyText={this.props.copyText} />
-                <FrontendCssImg copyText={this.props.copyText} />
-                <FrontendRest copyText={this.props.copyText} />
+                <FrontendReact 
+                    copyText={this.props.copyText}
+                />
+                <FrontendCssFlex 
+                    copyText={this.props.copyText}
+                    showModal={this.props.showModal} 
+                />
+                <FrontendCssImg 
+                    copyText={this.props.copyText}
+                    showModal={this.props.showModal} 
+                />
+                <FrontendRest 
+                    copyText={this.props.copyText}
+                />
                 <FrontendNetlify />
             </div>
         );

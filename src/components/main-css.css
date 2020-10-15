@@ -242,12 +242,15 @@ a:hover {
 }
 
 .modal-icon {
+  margin: 0 auto;
   height: 100px;
+  text-align: center;
   font-size: 100px;
 }
 
 .modal-title {
-  margin-bottom: 15px;
+  margin: 0 auto 15px;
+  text-align: center;
   font-size: 25px;
 }
 
@@ -256,12 +259,12 @@ a:hover {
   position: fixed;
   top: 50%;
   left: 50%;
-  width: 20%;
-  min-width: 160px;
+  width: 40%;
+  min-width: 200px;
   padding: 10px;
   transform: translate(-50%,-50%);
   background: white;
-  color: black;
+  color: var(--main-txt-color);
   font-size: 14px;
   border: 1px solid white;
   border-radius: 5px;
@@ -274,17 +277,18 @@ a:hover {
 .modal-button-ok {
   margin: 10px auto;
   padding: 5px;
-  width: 40%;
-  background: #f77f00;
+  width: 20%;
+  background: var(--second-acc-color);
   color: white;
+  text-align: center;
   border-radius: 15px;
 }
 
 .modal-button-ok:hover {
   padding: 3px;
-  color: #f77f00;
+  color: var(--second-acc-color);
   background: white;
-  border: 2px solid #f77f00;
+  border: 2px solid var(--second-acc-color);
   cursor: pointer;
 }
 

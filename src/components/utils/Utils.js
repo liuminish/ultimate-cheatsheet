@@ -79,7 +79,7 @@ class DivInteractive extends React.Component {
         return (
             <div className="div-inter">
                 <div className="div-inter-expl" style={{width: this.props.width}}>
-                    {this.props.property}:
+                    <span id="div-inter-clickable" onClick={() => this.props.showModal(this.props.property, this.props.explanation)}>{this.props.property}</span>:
                 </div>
                 <div className="div-inter-field">
                     {this.props.values.map((value, index) => {
@@ -128,7 +128,7 @@ class Modal extends React.Component {
         const modalDisplay = { display: this.props.displayModal ? "block" : "none" };
         return (
         <div className="modal-main" style={modalDisplay}>
-            <div className="modal-background" />
+            <div className="modal-background" onClick={this.props.handleClose} />
             <div className="modal-content">
                 <div className="modal-icon">{this.props.modalIcon}</div>
                 <div className="modal-title">{this.props.modalTitle}</div>

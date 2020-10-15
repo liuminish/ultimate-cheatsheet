@@ -2,7 +2,7 @@ import React from 'react';
 import '../main-css.css';
 
 import { CopyToClipboard } from 'react-copy-to-clipboard';
-import { RiFileCopyLine, RiRefreshLine } from "react-icons/ri";
+import { RiFileCopyLine, RiRefreshLine, RiCloseCircleFill } from "react-icons/ri";
 
 import {Controlled as CodeMirror} from 'react-codemirror2';
 import 'codemirror/lib/codemirror.css';
@@ -125,15 +125,34 @@ class DropdownMenu extends React.Component {
 
 class Modal extends React.Component {
     render() {
-        const modalDisplay = { display: this.props.displayModal ? "block" : "none" };
+        const modalDisplay = { display: this.props.display ? "block" : "none" };
         return (
         <div className="modal-main" style={modalDisplay}>
             <div className="modal-background" onClick={this.props.handleClose} />
             <div className="modal-content">
-                <div className="modal-icon">{this.props.modalIcon}</div>
-                <div className="modal-title">{this.props.modalTitle}</div>
-                <div>{this.props.modalContent}</div>
-                <div className="modal-button-ok" onClick={this.props.handleClose}>{this.props.modalButton}</div>
+                <div className="modal-icon">{this.props.icon}</div>
+                <div className="modal-title">{this.props.title}</div>
+                <div>{this.props.content}</div>
+                <div className="modal-button-ok" onClick={this.props.handleClose}>{this.props.button}</div>
+            </div>
+        </div>
+        );
+    }
+}
+
+class ModalImage extends React.Component {
+    render() {
+        const modalDisplay = { display: this.props.display ? "block" : "none" };
+        return (
+        <div className="modal-main" style={modalDisplay}>
+            <div className="modal-background" onClick={this.props.handleClose} />
+            <div className="modal-img-content">
+                <div className="modal-img-container">
+                    <img src={this.props.src} alt={this.props.alt} />
+                </div>
+                <div className="modal-close" onClick={this.props.handleClose}>
+                    <RiCloseCircleFill />
+                </div>
             </div>
         </div>
         );
@@ -152,4 +171,4 @@ class Copied extends React.Component {
 }
 
 
-export { Textbox, TextboxCopy, TextboxCopyLong, DivInteractive, DropdownMenu, Modal, Copied };
+export { Textbox, TextboxCopy, TextboxCopyLong, DivInteractive, DropdownMenu, Modal, ModalImage, Copied };

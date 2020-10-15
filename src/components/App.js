@@ -6,7 +6,7 @@ import Introduction from './Introduction';
 import Frontend from './frontend/Frontend';
 import Backend from './backend/Backend';
 import Tools from './Tools';
-import { Copied, Modal } from './utils/Utils'
+import { Copied, Modal, ModalImage } from './utils/Utils'
 
 
 import { RiInformationLine } from "react-icons/ri";
@@ -23,6 +23,11 @@ class App extends React.Component {
         'content': '',
         'button-content': 'I see'
       },
+      modalImage : {
+        'display': false,
+        'src': '',
+        'alt': ''
+      }
     }
 
     this.copyText = this.copyText.bind(this)
@@ -30,6 +35,9 @@ class App extends React.Component {
 
     this.showModal = this.showModal.bind(this)
     this.closeModal = this.closeModal.bind(this)
+
+    this.showModalImage = this.showModalImage.bind(this)
+    this.closeModalImage = this.closeModalImage.bind(this)
   }
 
   copyText() {
@@ -65,6 +73,26 @@ class App extends React.Component {
     this.setState({modal: newModal})
   }
 
+  showModalImage(src, alt) {
+    let newModalImage ={
+      'display': true,
+      'src': src,
+      'alt': alt
+    }
+
+    this.setState({modalImage: newModalImage})
+  }
+
+  closeModalImage() {
+    let newModalImage ={
+      'display': false,
+      'src': '',
+      'alt': ''
+    }
+
+    this.setState({modalImage: newModalImage})
+  }
+
   render() {
     return (
       <div>
@@ -72,12 +100,18 @@ class App extends React.Component {
           isCopied={this.state.isCopied}
         />
         <Modal 
-          displayModal={this.state.modal.display}
-          modalIcon={this.state.modal.icon}
-          modalTitle={this.state.modal.title}
-          modalContent={this.state.modal.content}
-          modalButton={this.state.modal['button-content']}
+          display={this.state.modal.display}
+          icon={this.state.modal.icon}
+          title={this.state.modal.title}
+          content={this.state.modal.content}
+          button={this.state.modal['button-content']}
           handleClose={this.closeModal}
+        />
+        <ModalImage
+          display={this.state.modalImage.display}
+          src={this.state.modalImage.src}
+          alt={this.state.modalImage.alt}
+          handleClose={this.closeModalImage}
         />
         <Navibar />
         <Introduction 
@@ -87,6 +121,7 @@ class App extends React.Component {
           title="frontend"
           copyText={this.copyText}
           showModal={this.showModal}
+          showModalImage={this.showModalImage} 
         />
         <Backend 
           title="backend"

@@ -26,7 +26,9 @@ class Frontend extends React.Component {
                 <FrontendRest 
                     copyText={this.props.copyText}
                 />
-                <FrontendNetlify />
+                <FrontendNetlify 
+                    showModalImage={this.props.showModalImage} 
+                />
             </div>
         );
     }

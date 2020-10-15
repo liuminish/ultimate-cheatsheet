@@ -222,7 +222,7 @@ a:hover {
 
 /* style for modal */
 .modal-main {
-  z-index: 1;
+  z-index: 100;
   position: fixed;
   top: 0;
   left: 0;
@@ -255,7 +255,7 @@ a:hover {
 }
 
 .modal-content {
-  z-index: 2;
+  z-index: 5;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -289,6 +289,43 @@ a:hover {
   color: var(--second-acc-color);
   background: white;
   border: 2px solid var(--second-acc-color);
+  cursor: pointer;
+}
+
+/* style for modal image */
+.modal-img-content {
+  z-index: 6;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 90%;
+  min-width: 200px;
+  transform: translate(-50%,-50%);
+  border-radius: 5px;
+}
+
+.modal-img-container {
+  height: 100%;
+  width: 100%
+}
+
+.modal-img-container img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+.modal-close {
+  z-index: 10;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-size: 30px;
+  color: var(--third-txt-color)
+}
+
+.modal-close:hover {
+  color: var(--second-txt-color);
   cursor: pointer;
 }
 

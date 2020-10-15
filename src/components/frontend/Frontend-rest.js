@@ -1,8 +1,6 @@
 import React from 'react';
 import '../main-css.css';
 
-import { TextboxCopy } from '../utils/Utils'
-
 class FrontendRest extends React.Component {
 
     render() {

@@ -11,7 +11,7 @@ const menuList = [
     },
     {
         'main': 'frontend',
-        'sub': ['React','CSS Flexbox','REST APIs','Using Netlify']
+        'sub': ['React','CSS Flexbox','CSS Images','REST APIs','Using Netlify']
     },
     {
         'main': 'backend',

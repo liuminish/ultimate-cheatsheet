@@ -4,29 +4,10 @@ import '../main-css.css';
 import { TextboxCopy } from '../utils/Utils';
 
 class BackendSqlite extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            isCopied: false
-        }
-        this.copyText = this.copyText.bind(this)
-        this.removeCopy = this.removeCopy.bind(this)
-
-    }
-
-    copyText() {
-        this.setState({isCopied: true})
-        setTimeout(this.removeCopy, 1000);
-    }
-
-    removeCopy() {
-        this.setState({isCopied: false})
-    }
 
     render() {
         return (
         <div className="section-container" id="SQLite">
-            {this.state.isCopied ? <div className="textbox-copied">Copied!</div> : null}
             <div className="section-title">
                 SQLITE
             </div>
@@ -38,7 +19,7 @@ class BackendSqlite extends React.Component {
                         </div>
                         <TextboxCopy
                             content={`const sqlite3 = require('sqlite3');\nconst db = new sqlite3.Database(process.env.TEST_DATABASE || './database.sqlite');`}
-                            copyText={this.copyText} 
+                            copyText={this.props.copyText} 
 
                         />
                     </div>
@@ -70,7 +51,7 @@ class BackendSqlite extends React.Component {
         FOREIGN KEY (employee-id) REFERENCES Employee(id)
         )')
 })`}
-                            copyText={this.copyText} 
+                            copyText={this.props.copyText} 
 
                         />
                         <p>Take note of syntax for tables with foreign key. Also note that DB serialize is used under the assumption that more than one table will be created</p>
@@ -96,7 +77,7 @@ class BackendSqlite extends React.Component {
         );
     };
 });`}
-                            copyText={this.copyText} 
+                            copyText={this.props.copyText} 
 
                         />
                         <p>Note that this can be created together in migration.js</p>

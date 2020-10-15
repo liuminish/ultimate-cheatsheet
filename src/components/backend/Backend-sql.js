@@ -4,29 +4,10 @@ import '../main-css.css';
 import { TextboxCopy } from '../utils/Utils';
 
 class BackendSql extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            isCopied: false
-        }
-        this.copyText = this.copyText.bind(this)
-        this.removeCopy = this.removeCopy.bind(this)
-
-    }
-
-    copyText() {
-        this.setState({isCopied: true})
-        setTimeout(this.removeCopy, 1000);
-    }
-
-    removeCopy() {
-        this.setState({isCopied: false})
-    }
 
     render() {
         return (
         <div className="section-container" id="SQL">
-            {this.state.isCopied ? <div className="textbox-copied">Copied!</div> : null}
             <div className="section-title">
                 SQL
             </div>
@@ -39,7 +20,7 @@ class BackendSql extends React.Component {
                         </div>
                         <TextboxCopy
                             content={`SELECT * \nFROM movies;`}
-                            copyText={this.copyText} 
+                            copyText={this.props.copyText} 
 
                         />
                     </div>
@@ -51,7 +32,7 @@ class BackendSql extends React.Component {
                         </div>
                         <TextboxCopy 
                             content={`SELECT name AS 'movie_title' \nFROM movies;`}
-                            copyText={this.copyText} 
+                            copyText={this.props.copyText} 
                         />
                     </div>
 
@@ -62,7 +43,7 @@ class BackendSql extends React.Component {
                         </div>
                         <TextboxCopy 
                             content={`SELECT title\nFROM library\nWHERE pub_year = 2017;`} 
-                            copyText={this.copyText}
+                            copyText={this.props.copyText}
                         />
                     </div>
                 </div>
@@ -75,7 +56,7 @@ class BackendSql extends React.Component {
                         </div>
                         <TextboxCopy 
                             content={`SELECT model \nFROM cars \nWHERE color = 'blue' \n\tAND year > 2014;`} 
-                            copyText={this.copyText}
+                            copyText={this.props.copyText}
                         />
                     </div>
                     <div className="backend-sql-row">
@@ -85,7 +66,7 @@ class BackendSql extends React.Component {
                         </div>
                         <TextboxCopy 
                             content={`SELECT model \nFROM cars \nWHERE color = 'blue' \n\OR year > 2014;`} 
-                            copyText={this.copyText}
+                            copyText={this.props.copyText}
                         />
                     </div>
                     <div className="backend-sql-row">
@@ -95,7 +76,7 @@ class BackendSql extends React.Component {
                         </div>
                         <TextboxCopy 
                             content={`SELECT name\nFROM movies\nWHERE name LIKE 'Star%';`} 
-                            copyText={this.copyText}
+                            copyText={this.props.copyText}
                         />
                     </div>
                     <div className="backend-sql-row">
@@ -105,7 +86,7 @@ class BackendSql extends React.Component {
                         </div>
                         <TextboxCopy 
                             content={`SELECT name\nFROM movies\nWHERE name LIKE '%star%';`} 
-                            copyText={this.copyText}
+                            copyText={this.props.copyText}
                         />
                     </div>
                     <div className="backend-sql-row">
@@ -115,7 +96,7 @@ class BackendSql extends React.Component {
                         </div>
                         <TextboxCopy 
                             content={`SELECT name\nFROM movies\nWHERE name LIKE '_tar';`} 
-                            copyText={this.copyText}
+                            copyText={this.props.copyText}
                         />
                     </div>
                     <div className="backend-sql-row">
@@ -125,7 +106,7 @@ class BackendSql extends React.Component {
                         </div>
                         <TextboxCopy 
                             content={`SELECT address\nFROM records\nWHERE address IS NOT NULL;`} 
-                            copyText={this.copyText}
+                            copyText={this.props.copyText}
                         />
                     </div>
                     <div className="backend-sql-row">
@@ -135,7 +116,7 @@ class BackendSql extends React.Component {
                         </div>
                         <TextboxCopy 
                             content={`SELECT *\nFROM movies\nWHERE year BETWEEN 1980 AND 1990;`} 
-                            copyText={this.copyText}
+                            copyText={this.props.copyText}
                         />
                     </div>
                 </div>
@@ -147,7 +128,7 @@ class BackendSql extends React.Component {
                         </div>
                         <TextboxCopy 
                             content={`SELECT *\nFROM contacts\nORDER BY birth_date DESC;`} 
-                            copyText={this.copyText}
+                            copyText={this.props.copyText}
                         />
                     </div>
                     <div className="backend-sql-row">
@@ -157,7 +138,7 @@ class BackendSql extends React.Component {
                         </div>
                         <TextboxCopy 
                             content={`SELECT *\nFROM movies\nLIMIT 5;`} 
-                            copyText={this.copyText}
+                            copyText={this.props.copyText}
                         />
                     </div>
                     <div className="backend-sql-row">
@@ -167,7 +148,7 @@ class BackendSql extends React.Component {
                         </div>
                         <TextboxCopy 
                             content={`SELECT DISTINCT city\nFROM contact_details;`} 
-                            copyText={this.copyText}
+                            copyText={this.props.copyText}
                         />
                     </div>
                 </div>

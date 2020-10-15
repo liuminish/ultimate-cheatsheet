@@ -7,7 +7,6 @@ class FrontendCssFlex extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            isCopied: false,
             flexStyle: {
                 'display': 'flex',
                 'flex-direction': 'row',
@@ -21,15 +20,15 @@ class FrontendCssFlex extends React.Component {
                 'box-width': '100px',
                 'box-height': '100px'
             },
-            flexTextbox: `.parent {\n\tdisplay: flex;\n\tflex-direction: row;\n\tflex-wrap: wrap;\n\tjustify-content: flex-start;\n\talign-items: flex-start;\n\talign-content: flex-start;\n}`
-            
+            flexTextbox: `.parent {\n\tdisplay: flex;\n\tflex-direction: row;\n\tflex-wrap: wrap;\n\tjustify-content: flex-start;\n\talign-items: flex-start;\n\talign-content: flex-start;\n}` 
         }
-        this.updateFlexStyle = this.updateFlexStyle.bind(this);
-        this.resetFlexStyle = this.resetFlexStyle.bind(this);
-        this.updateFlexTextbox = this.updateFlexTextbox.bind(this);
-        this.updateBoxNumber = this.updateBoxNumber.bind(this);
-        this.updateBoxWidth = this.updateBoxWidth.bind(this);
-        this.updateBoxHeight = this.updateBoxHeight.bind(this);
+
+        this.updateFlexStyle = this.updateFlexStyle.bind(this)
+        this.resetFlexStyle = this.resetFlexStyle.bind(this)
+        this.updateFlexTextbox = this.updateFlexTextbox.bind(this)
+        this.updateBoxNumber = this.updateBoxNumber.bind(this)
+        this.updateBoxWidth = this.updateBoxWidth.bind(this)
+        this.updateBoxHeight = this.updateBoxHeight.bind(this)
 
     }
 
@@ -172,8 +171,8 @@ class FrontendCssFlex extends React.Component {
 
                         <div className="cheatsheet-box">
                             <TextboxCopyLong 
-                                value={this.state.flexTextbox} 
-                                onChange={this.updateFlexTextbox} 
+                                content={this.state.flexTextbox}
+                                copyText={this.props.copyText} 
                             />
                         </div>
 

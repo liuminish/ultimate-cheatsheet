@@ -9,9 +9,9 @@ class Backend extends React.Component {
   render() {
     return (
       <div id="backend">
-        <BackendNodejs />
-        <BackendSql />
-        <BackendSqlite />
+        <BackendNodejs copyText={this.props.copyText} />
+        <BackendSql copyText={this.props.copyText} />
+        <BackendSqlite copyText={this.props.copyText} />
       </div>
     );
   }

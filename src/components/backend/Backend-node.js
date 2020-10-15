@@ -5,29 +5,10 @@ import '../main-css.css';
 import { TextboxCopyLong } from '../utils/Utils'
 
 class BackendNodejs extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            isCopied: false
-        }
-        this.copyText = this.copyText.bind(this)
-        this.removeCopy = this.removeCopy.bind(this)
-
-    }
-
-    copyText() {
-        this.setState({isCopied: true})
-        setTimeout(this.removeCopy, 1000);
-    }
-
-    removeCopy() {
-        this.setState({isCopied: false})
-    }
 
     render() {
         return (
         <div className="section-container" id="NodeJS">
-            {this.state.isCopied ? <div className="textbox-copied">Copied!</div> : null}
             <div className="section-title">
                 NodeJS
             </div>
@@ -36,7 +17,7 @@ class BackendNodejs extends React.Component {
                 <div className="cheatsheet-box">
                     <p id="cheatsheet-header">Basic structure of server.js</p>
                     <TextboxCopyLong 
-                        value={`const express = require('express');
+                        content={`const express = require('express');
 const app = express();
 
 const PORT = process.env.PORT || 4000;
@@ -61,6 +42,7 @@ app.listen(PORT, () => {
 });
 
 module.exports = app;`}
+                        copyText={this.props.copyText} 
                     />
                 </div>
 

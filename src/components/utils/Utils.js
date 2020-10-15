@@ -56,7 +56,7 @@ class TextboxCopyLong extends React.Component {
         return (
             <div className="textbox-copy">
                 <CodeMirror
-                    value={this.props.value}
+                    value={this.props.content}
                     options={{
                         mode: 'javascript',
                         theme: 'material',
@@ -64,7 +64,7 @@ class TextboxCopyLong extends React.Component {
                     }}
                 />
                 <div className="textbox-copy-logo">
-                    <CopyToClipboard text={this.props.value} onCopy={this.props.copyText}>
+                    <CopyToClipboard text={this.props.content} onCopy={this.props.copyText}>
                         <RiFileCopyLine />
                     </CopyToClipboard>
                 </div>
@@ -123,5 +123,33 @@ class DropdownMenu extends React.Component {
     }
 }
 
+class Modal extends React.Component {
+    render() {
+        const modalDisplay = { display: this.props.displayModal ? "block" : "none" };
+        return (
+        <div className="modal-main" style={modalDisplay}>
+            <div className="modal-background" />
+            <div className="modal-content">
+                <div className="modal-icon">{this.props.modalIcon}</div>
+                <div className="modal-title">{this.props.modalTitle}</div>
+                <div>{this.props.modalContent}</div>
+                <div className="modal-button-ok" onClick={this.props.handleClose}>{this.props.modalButton}</div>
+            </div>
+        </div>
+        );
+    }
+}
 
-export { Textbox, TextboxCopy, TextboxCopyLong, DivInteractive, DropdownMenu };
+class Copied extends React.Component {
+    render() {
+        return (
+            <div>
+                {this.props.isCopied ? <div className="textbox-copied">Copied!</div> : null}
+            </div>
+            
+        )
+    }
+}
+
+
+export { Textbox, TextboxCopy, TextboxCopyLong, DivInteractive, DropdownMenu, Modal, Copied };

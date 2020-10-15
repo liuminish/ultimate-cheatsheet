@@ -4,29 +4,10 @@ import '../main-css.css';
 import { TextboxCopy } from '../utils/Utils'
 
 class FrontendReact extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            isCopied: false
-        }
-        this.copyText = this.copyText.bind(this)
-        this.removeCopy = this.removeCopy.bind(this)
-
-    }
-
-    copyText() {
-        this.setState({isCopied: true})
-        setTimeout(this.removeCopy, 1000);
-    }
-
-    removeCopy() {
-        this.setState({isCopied: false})
-    }
 
     render() {
         return (
         <div className="section-container" id="React">
-            {this.state.isCopied ? <div className="textbox-copied">Copied!</div> : null}
             <div className="section-title">
                 React
             </div>
@@ -41,7 +22,7 @@ class FrontendReact extends React.Component {
                         <TextboxCopy 
                         content="npm install create-react-app" 
                         keyword="create-react-app" 
-                        copyText={this.copyText} 
+                        copyText={this.props.copyText} 
                     /></div>
                     <div className="frontend-react-row">
                         <div className="frontend-react-expl">
@@ -49,7 +30,7 @@ class FrontendReact extends React.Component {
                         </div>
                         <TextboxCopy 
                         content="create-react-app new-app-directory" 
-                        copyText={this.copyText}
+                        copyText={this.props.copyText}
                     /></div>
                 </div>
 
@@ -61,7 +42,7 @@ class FrontendReact extends React.Component {
                         </div>
                         <TextboxCopy 
                         content="npm install react-icons" 
-                        copyText={this.copyText}
+                        copyText={this.props.copyText}
                     /></div>
                     <div className="frontend-react-row">
                         <div className="frontend-react-expl">
@@ -69,7 +50,7 @@ class FrontendReact extends React.Component {
                         </div>
                         <TextboxCopy
                         content="npm install react-external-link" 
-                        copyText={this.copyText}
+                        copyText={this.props.copyText}
                     /></div>
                     <div className="frontend-react-row">
                         <div className="frontend-react-expl">
@@ -77,7 +58,7 @@ class FrontendReact extends React.Component {
                         </div>
                         <TextboxCopy
                         content="npm install react-router" 
-                        copyText={this.copyText}
+                        copyText={this.props.copyText}
                     /></div>
                 </div>
 
@@ -90,7 +71,7 @@ class FrontendReact extends React.Component {
                         <TextboxCopy
                         content="export default Module" 
                         keyword="Module" 
-                        copyText={this.copyText}
+                        copyText={this.props.copyText}
                     /></div>
                     <div className="frontend-react-row">
                         <div className="frontend-react-expl">
@@ -99,7 +80,7 @@ class FrontendReact extends React.Component {
                         <TextboxCopy
                         content="import Module from './Module'" 
                         keyword="Module" 
-                        copyText={this.copyText}
+                        copyText={this.props.copyText}
                     /></div>
                 </div>
 

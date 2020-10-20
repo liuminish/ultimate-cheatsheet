@@ -7,6 +7,7 @@ import favicon from '../media/favicon-logo.jpeg';
 import github from '../media/github-logo.png';
 import netlify from '../media/netlify-logo.png';
 import optimizilla from '../media/optimizilla-logo.svg';
+import tablesgenerator from '../media/tablesgenerator-logo.png';
 
 import { ExternalLink } from 'react-external-link';
 
@@ -46,6 +47,12 @@ const toolsList = [
     'logo': optimizilla,
     'url': 'https://imagecompressor.com/',
     'description': 'A great site for compressing images for free.'
+  },
+  {
+    'name': 'Tables Generator',
+    'logo': tablesgenerator,
+    'url': 'https://www.tablesgenerator.com/',
+    'description': 'Generate tables in HTML, markdown, and other useful formats.'
   },
 ]
 

@@ -15,11 +15,15 @@ const menuList = [
     },
     {
         'main': 'backend',
-        'sub': ['NodeJS','SQL','SQLite']
+        'sub': ['NodeJS','Ruby','Ruby on Rails','SQL','SQLite']
+    },
+    {
+        'main': 'Others',
+        'sub': ['Soft skills']
     },
     {
         'main':'tools',
-        'sub': []
+        'sub': ['Git']
     }
 ]
 const capitalizeFirstLetter = string => {

@@ -103,10 +103,10 @@ class App extends React.Component {
     } else {
       return (
         <div>
-          <Copied 
+          <Copied
             isCopied={this.state.isCopied}
           />
-          <Modal 
+          <Modal
             display={this.state.modal.display}
             icon={this.state.modal.icon}
             title={this.state.modal.title}
@@ -122,28 +122,29 @@ class App extends React.Component {
             handleClose={this.closeModalImage}
           />
           <Navibar />
-          <Introduction 
+          <Introduction
             title="introduction"
           />
-          <Frontend 
+          <Frontend
             title="frontend"
             copyText={this.copyText}
             showModal={this.showModal}
-            showModalImage={this.showModalImage} 
+            showModalImage={this.showModalImage}
           />
-          <Backend 
+          <Backend
             title="backend"
             copyText={this.copyText}
             showModal={this.showModal}
           />
-          <Tools 
+          <Tools
             title="tools"
+            copyText={this.props.copyText}
           />
         </div>
       )
     }
   }
-    
+
 }
 
 export default App;

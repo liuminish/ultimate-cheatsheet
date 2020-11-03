@@ -1,8 +1,8 @@
 /* main styles */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 :root {
-  --main-bg-color:#e0fbfc;
+  --main-bg-color: #e0fbfc;
   --main-acc-color: #98c1d9;
   --second-acc-color: #3d5a80;
   --main-txt-color: #293241;
@@ -45,6 +45,7 @@ a:hover {
 }
 
 /* navibar styles*/
+
 .navibar-container-main {
   z-index: 99;
   position: fixed;
@@ -108,21 +109,20 @@ a:hover {
     padding: 8px 40px;
     font-size: 20px;
   }
-
   .navibar-container-sub {
     top: 41px
   }
 }
 
 /* cheatsheet styles */
+
 .cheatsheet-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .cheatsheet-column {
   margin: 0 auto;
-  width: 49%;
 }
 
 .cheatsheet-box {
@@ -147,6 +147,7 @@ a:hover {
 }
 
 /* textbox with copy styles */
+
 .textbox-copy-detailed {
   display: flex;
   flex-direction: column;
@@ -238,6 +239,7 @@ a:hover {
 }
 
 /* style for modal */
+
 .modal-main {
   z-index: 100;
   position: fixed;
@@ -279,7 +281,7 @@ a:hover {
   width: 40%;
   min-width: 200px;
   padding: 10px;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   background: white;
   color: var(--main-txt-color);
   font-size: 14px;
@@ -310,6 +312,7 @@ a:hover {
 }
 
 /* style for modal image */
+
 .modal-img-background {
   z-index: 1;
   position: fixed;
@@ -329,7 +332,7 @@ a:hover {
   max-height: 80%;
   min-width: 200px;
   background: white;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   border-radius: 5px;
 }
 
@@ -368,6 +371,7 @@ a:hover {
 }
 
 /* not supported styles */
+
 .mobile-icon {
   margin: 0 auto;
   padding: 10px;
@@ -377,11 +381,11 @@ a:hover {
 
 .mobile-content {
   margin: 0 auto;
-  width : 80%;
+  width: 80%;
 }
 
-
 /* codemirror styes (written to overwrite existing) */
+
 .CodeMirror {
   height: auto !important;
   border-radius: 5px;
@@ -392,6 +396,7 @@ a:hover {
 }
 
 /* introduction styles */
+
 .introduction-body {
   margin: 0 auto;
   width: 80%;
@@ -403,6 +408,7 @@ a:hover {
 }
 
 /* frontend react styles */
+
 .frontend-react-row {
   display: flex;
   align-items: center;
@@ -413,6 +419,11 @@ a:hover {
 }
 
 /* frontend flex styles */
+
+.css-flex-column {
+  margin: 0 10px;
+}
+
 .css-flex-example {
   background-color: white;
   margin: 20px 0;
@@ -490,6 +501,11 @@ a:hover {
 }
 
 /* frontend css images styles */
+
+.css-img-column {
+  margin: 0 10px;
+}
+
 .css-img-obj-pos {
   display: flex;
 }
@@ -520,6 +536,16 @@ a:hover {
 }
 
 /* frontend netlify styles */
+
+.frontend-netlify-box {
+  background-color: white;
+  margin: 20px auto;
+  padding: 10px;
+  border-radius: 10px;
+  overflow: auto;
+  width: 60%;
+}
+
 .frontend-netlify-img-container {
   width: 100%;
 }
@@ -536,6 +562,7 @@ a:hover {
 }
 
 /* backend nodejs */
+
 #backend-node-link a, #backend-node-link a:visited {
   color: var(--second-acc-color)
 }
@@ -545,11 +572,13 @@ a:hover {
 }
 
 /* backend sql styles */
+
 .backend-sql-expl {
   width: 100%;
 }
 
 /* tools styles */
+
 .tools-container-main {
   display: flex;
   flex-direction: column;

@@ -17,19 +17,18 @@ class FrontendReact extends React.Component {
                     <p id="cheatsheet-header">Create React App</p>
                     <div className="frontend-react-row">
                         <div className="frontend-react-expl">
-                            To install: 
+                            To install:
                         </div>
-                        <TextboxCopy 
-                        content="npm install create-react-app" 
-                        keyword="create-react-app" 
-                        copyText={this.props.copyText} 
+                        <TextboxCopy
+                        content="npm install create-react-app"
+                        copyText={this.props.copyText}
                     /></div>
                     <div className="frontend-react-row">
                         <div className="frontend-react-expl">
-                            To create: 
+                            To create:
                         </div>
-                        <TextboxCopy 
-                        content="create-react-app new-app-directory" 
+                        <TextboxCopy
+                        content="create-react-app new-app-directory"
                         copyText={this.props.copyText}
                     /></div>
                 </div>
@@ -38,26 +37,26 @@ class FrontendReact extends React.Component {
                     <p id="cheatsheet-header">Useful React Packages</p>
                     <div className="frontend-react-row">
                         <div className="frontend-react-expl">
-                            React Icons: 
+                            React Icons:
                         </div>
-                        <TextboxCopy 
-                        content="npm install react-icons" 
+                        <TextboxCopy
+                        content="npm install react-icons"
                         copyText={this.props.copyText}
                     /></div>
                     <div className="frontend-react-row">
                         <div className="frontend-react-expl">
-                            External Links: 
+                            External Links:
                         </div>
                         <TextboxCopy
-                        content="npm install react-external-link" 
+                        content="npm install react-external-link"
                         copyText={this.props.copyText}
                     /></div>
                     <div className="frontend-react-row">
                         <div className="frontend-react-expl">
-                            React Router 
+                            React Router
                         </div>
                         <TextboxCopy
-                        content="npm install react-router" 
+                        content="npm install react-router"
                         copyText={this.props.copyText}
                     /></div>
                 </div>
@@ -66,20 +65,20 @@ class FrontendReact extends React.Component {
                     <p id="cheatsheet-header">Export and Import of Modules</p>
                     <div className="frontend-react-row">
                         <div className="frontend-react-expl">
-                            Export: 
+                            Export:
                         </div>
                         <TextboxCopy
-                        content="export default Module" 
-                        keyword="Module" 
+                        content="export default Module"
+                        keyword="Module"
                         copyText={this.props.copyText}
                     /></div>
                     <div className="frontend-react-row">
                         <div className="frontend-react-expl">
-                            Import: 
+                            Import:
                         </div>
                         <TextboxCopy
-                        content="import Module from './Module'" 
-                        keyword="Module" 
+                        content="import Module from './Module'"
+                        keyword="Module"
                         copyText={this.props.copyText}
                     /></div>
                 </div>

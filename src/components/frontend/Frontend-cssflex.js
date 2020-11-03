@@ -133,7 +133,7 @@ class FrontendCssFlex extends React.Component {
     render() {
         const boxNumbers = []
         for (let index = 1; index <= this.state.demoStyle['box-number']; index++) {
-            boxNumbers.push(index)   
+            boxNumbers.push(index)
         }
 
         const reactFlexStyle = {
@@ -151,18 +151,18 @@ class FrontendCssFlex extends React.Component {
                     CSS Flexbox
                 </div>
                 <div className="cheatsheet-container">
-                    <div className="cheatsheet-column">
+                    <div className="css-flex-column">
 
                         <div className="cheatsheet-box">
                             <p id="cheatsheet-header">Flex container properties</p>
                             {flexContProp.map((prop, index) => {
                                 return (
-                                    <DivInteractive 
-                                        property={prop.property} 
-                                        values={prop.values} 
+                                    <DivInteractive
+                                        property={prop.property}
+                                        values={prop.values}
                                         explanation={prop.explanation}
-                                        flexStyle={this.state.flexStyle} 
-                                        handleClick={this.updateFlexStyle} 
+                                        flexStyle={this.state.flexStyle}
+                                        handleClick={this.updateFlexStyle}
                                         reset={this.resetFlexStyle}
                                         showModal={this.props.showModal}
                                         width="110px"
@@ -170,9 +170,9 @@ class FrontendCssFlex extends React.Component {
                                     />
                                 )
                             })}
-                            <Textbox 
-                                property="flex-flow" 
-                                values={`${this.state.flexStyle['flex-direction']} ${this.state.flexStyle['flex-wrap']}`} 
+                            <Textbox
+                                property="flex-flow"
+                                values={`${this.state.flexStyle['flex-direction']} ${this.state.flexStyle['flex-wrap']}`}
                                 width="110px"
                             />
                         </div>
@@ -181,12 +181,12 @@ class FrontendCssFlex extends React.Component {
                             <p id="cheatsheet-header">Flex alignment properties</p>
                             {flexAlignProp.map((prop, index) => {
                                 return (
-                                    <DivInteractive 
-                                        property={prop.property} 
-                                        values={prop.values} 
+                                    <DivInteractive
+                                        property={prop.property}
+                                        values={prop.values}
                                         explanation={prop.explanation}
-                                        flexStyle={this.state.flexStyle} 
-                                        handleClick={this.updateFlexStyle} 
+                                        flexStyle={this.state.flexStyle}
+                                        handleClick={this.updateFlexStyle}
                                         reset={this.resetFlexStyle}
                                         showModal={this.props.showModal}
                                         width="110px"
@@ -197,15 +197,15 @@ class FrontendCssFlex extends React.Component {
                         </div>
 
                         <div className="cheatsheet-box">
-                            <TextboxCopyLong 
+                            <TextboxCopyLong
                                 content={this.state.flexTextbox}
-                                copyText={this.props.copyText} 
+                                copyText={this.props.copyText}
                             />
                         </div>
 
                     </div>
 
-                    <div className="cheatsheet-column">
+                    <div className="css-flex-column">
 
                         <div className="css-flex-options">
                             <div className="css-flex-option">

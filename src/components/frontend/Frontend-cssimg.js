@@ -30,7 +30,7 @@ class FrontendCssImg extends React.Component {
                         'y-axis': ['10%','20%','30%','40%','50%']
                     }
                 }
-                
+
             },
             filter: {
                 'selected': {
@@ -64,7 +64,7 @@ class FrontendCssImg extends React.Component {
                 'filter': null
             },
             imgTextbox: `.img-container {\n\theight: 300px;\n\twidth: 500px\n}\n\n.img-container img {\n\theight: 100%;\n\twidth: 100%;\n\tobject-fit: fill;\n\tobject-position: 50% 50%;\n\timage-rendering: auto;\n}`
-            
+
         }
 
         this.updateImgStyle = this.updateImgStyle.bind(this)
@@ -115,7 +115,7 @@ class FrontendCssImg extends React.Component {
         newObjectPosition.selected['y-axis'] = this.state.objectPosition.choices[e.target.value]['y-axis'][0]
 
         let newImgStyle = {...this.state.imgStyle}
-        newImgStyle['object-position'] = this.state.objectPosition.selected['x-axis'] + ' ' + this.state.objectPosition.selected['y-axis'] 
+        newImgStyle['object-position'] = this.state.objectPosition.selected['x-axis'] + ' ' + this.state.objectPosition.selected['y-axis']
 
         await this.setState({
             objectPosition: newObjectPosition,
@@ -145,7 +145,7 @@ class FrontendCssImg extends React.Component {
         newObjectPosition.selected['y-axis'] = e.target.value
 
         let newImgStyle = {...this.state.imgStyle}
-        newImgStyle['object-position'] = this.state.objectPosition.selected['x-axis'] + ' ' + e.target.value 
+        newImgStyle['object-position'] = this.state.objectPosition.selected['x-axis'] + ' ' + e.target.value
 
         await this.setState({
             objectPosition: newObjectPosition,
@@ -215,7 +215,7 @@ class FrontendCssImg extends React.Component {
         await this.setState({
             filter: newFilter,
             imgStyle: newImgStyle
-        }) 
+        })
 
         this.updateImgTextbox();
     }
@@ -230,14 +230,14 @@ class FrontendCssImg extends React.Component {
         await this.setState({
             filter: newFilter,
             imgStyle: newImgStyle
-        }) 
+        })
 
         this.updateImgTextbox();
     }
 
     async resetFilter(type) {
         let newFilter = {...this.state.filter}
-        
+
         switch (type) {
             case 'blur':
                 newFilter.selected.option = '0px'
@@ -279,7 +279,7 @@ class FrontendCssImg extends React.Component {
         await this.setState({
             filter: newFilter,
             imgStyle: newImgStyle
-        }) 
+        })
 
         this.updateImgTextbox();
     }
@@ -328,18 +328,18 @@ class FrontendCssImg extends React.Component {
                     CSS Images
                 </div>
                 <div className="cheatsheet-container">
-                    <div className="cheatsheet-column">
+                    <div className="css-img-column">
 
                         <div className="cheatsheet-box">
                             <p id="cheatsheet-header">Image properties</p>
 
-                            <DivInteractive 
-                                property="object-fit" 
-                                values={['fill', 'contain', 'cover', 'none', 'scale-down']} 
+                            <DivInteractive
+                                property="object-fit"
+                                values={['fill', 'contain', 'cover', 'none', 'scale-down']}
                                 explanation='The CSS object-fit property is used to specify how an <img> or <video> should be resized to fit its container.'
                                 flexStyle={this.state.imgStyle}
                                 showModal={this.props.showModal}
-                                handleClick={this.updateImgStyle} 
+                                handleClick={this.updateImgStyle}
                                 reset={this.resetImgStyle}
                                 width="150px"
                             />
@@ -354,14 +354,14 @@ class FrontendCssImg extends React.Component {
                                 </div>
                             </div>
 
-                            <DivInteractive 
-                                property="image-rendering" 
+                            <DivInteractive
+                                property="image-rendering"
                                 values={['auto', 'crisp-edges', 'pixelated']}
                                 explanation='The image-rendering CSS property sets an image scaling algorithm. The property applies to an element itself, to any images set in its other properties, and to its descendants.'
-                                flexStyle={this.state.imgStyle} 
+                                flexStyle={this.state.imgStyle}
 
                                 showModal={this.props.showModal}
-                                handleClick={this.updateImgStyle} 
+                                handleClick={this.updateImgStyle}
                                 reset={this.resetImgStyle}
                                 width="150px"
                             />
@@ -377,19 +377,19 @@ class FrontendCssImg extends React.Component {
 
                         </div>
 
-                        
+
 
                         <div className="cheatsheet-box">
-                            <TextboxCopyLong 
-                                content={this.state.imgTextbox} 
+                            <TextboxCopyLong
+                                content={this.state.imgTextbox}
                                 onChange={this.updateImgTextbox}
-                                copyText={this.props.copyText} 
+                                copyText={this.props.copyText}
                             />
                         </div>
 
                     </div>
 
-                    <div className="cheatsheet-column">
+                    <div className="css-img-column">
 
                         <div className="css-img-example">
                             <div className="css-img-options">

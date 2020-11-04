@@ -1,15 +1,13 @@
 import React from 'react';
-import './main-css.css';
+import '../main-css.css';
 
-import ToolsGit from './Tools-git';
-
-import coolors from '../media/coolors-logo.jpg';
-import digitalocean from '../media/digitalocean-logo.svg';
-import favicon from '../media/favicon-logo.jpeg';
-import github from '../media/github-logo.png';
-import netlify from '../media/netlify-logo.png';
-import optimizilla from '../media/optimizilla-logo.svg';
-import tablesgenerator from '../media/tablesgenerator-logo.png';
+import coolors from '../../media/coolors-logo.jpg';
+import digitalocean from '../../media/digitalocean-logo.svg';
+import favicon from '../../media/favicon-logo.jpeg';
+import github from '../../media/github-logo.png';
+import netlify from '../../media/netlify-logo.png';
+import optimizilla from '../../media/optimizilla-logo.svg';
+import tablesgenerator from '../../media/tablesgenerator-logo.png';
 
 import { ExternalLink } from 'react-external-link';
 
@@ -61,29 +59,26 @@ const toolsList = [
 class Tools extends React.Component {
   render() {
     return (
-      <div>
-        <div className="section-container" id="tools">
-          <div className="section-title">
-              Tools
-          </div>
-          <div className="cheatsheet-container">
-            {toolsList.map((tool, index) => {
-              return (
-                <div className="cheatsheet-card-small" key={index}>
-                  <div className="tools-img-container">
-                    <ExternalLink href={tool.url}>
-                      <img src={tool.logo} alt={tool.name} />
-                    </ExternalLink>
-                  </div>
-                  <div>
-                    {tool.description}
-                  </div>
-                </div>
-              )
-            })}
-          </div>
+      <div className="section-container" id="Tools">
+        <div className="section-title">
+            Tools
         </div>
-        <ToolsGit copyText={this.props.copyText} />
+        <div className="cheatsheet-container">
+          {toolsList.map((tool, index) => {
+            return (
+              <div className="cheatsheet-card-small" key={index}>
+                <div className="tools-img-container">
+                  <ExternalLink href={tool.url}>
+                    <img src={tool.logo} alt={tool.name} />
+                  </ExternalLink>
+                </div>
+                <div>
+                  {tool.description}
+                </div>
+              </div>
+            )
+          })}
+        </div>
       </div>
     );
   }

@@ -1,7 +1,7 @@
 import React from 'react';
-import './main-css.css';
+import '../main-css.css';
 
-import { TextboxCopy } from './utils/Utils'
+import { TextboxCopy } from '../utils/Utils'
 
 const gitList = [
   {
@@ -36,7 +36,7 @@ const gitList = [
   },
 ]
 
-class ToolsGit extends React.Component {
+class Git extends React.Component {
 
   render() {
     return (
@@ -64,4 +64,4 @@ class ToolsGit extends React.Component {
 }
 
 
-export default ToolsGit;
+export default Git;

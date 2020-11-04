@@ -18,13 +18,9 @@ const menuList = [
         'sub': ['NodeJS','Ruby','Ruby on Rails','SQL','SQLite']
     },
     {
-        'main': 'Others',
-        'sub': ['Soft skills']
+        'main': 'others',
+        'sub': ['Soft skills', 'Git', 'Tools']
     },
-    {
-        'main':'tools',
-        'sub': ['Git']
-    }
 ]
 const capitalizeFirstLetter = string => {
     return string.charAt(0).toUpperCase() + string.slice(1);

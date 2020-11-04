@@ -5,7 +5,7 @@ import Navibar from './Navibar';
 import Introduction from './Introduction';
 import Frontend from './frontend/Frontend';
 import Backend from './backend/Backend';
-import Tools from './Tools';
+import Others from './others/Others';
 import { Copied, Modal, ModalImage, NotSupported } from './utils/Utils'
 
 
@@ -136,9 +136,9 @@ class App extends React.Component {
             copyText={this.copyText}
             showModal={this.showModal}
           />
-          <Tools
-            title="tools"
-            copyText={this.props.copyText}
+          <Others
+            title="others"
+            copyText={this.copyText}
           />
         </div>
       )

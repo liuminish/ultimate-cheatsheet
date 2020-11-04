@@ -343,7 +343,7 @@ a:hover {
   top: 50%;
   left: 50%;
   max-height: 80%;
-  min-width: 200px;
+  width: 80%;
   background: white;
   transform: translate(-50%, -50%);
   border-radius: 5px;
@@ -550,15 +550,6 @@ a:hover {
 }
 
 /* frontend netlify styles */
-
-.frontend-netlify-box {
-  background-color: white;
-  margin: 20px auto;
-  padding: 10px;
-  border-radius: 10px;
-  overflow: auto;
-  width: 60%;
-}
 
 .frontend-netlify-img-container {
   width: 100%;

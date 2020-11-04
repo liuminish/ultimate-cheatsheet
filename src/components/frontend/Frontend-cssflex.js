@@ -151,83 +151,82 @@ class FrontendCssFlex extends React.Component {
                     CSS Flexbox
                 </div>
                 <div className="cheatsheet-container">
-                    <div className="css-flex-column">
 
-                        <div className="cheatsheet-box">
-                            <p id="cheatsheet-header">Flex container properties</p>
-                            {flexContProp.map((prop, index) => {
-                                return (
-                                    <DivInteractive
-                                        property={prop.property}
-                                        values={prop.values}
-                                        explanation={prop.explanation}
-                                        flexStyle={this.state.flexStyle}
-                                        handleClick={this.updateFlexStyle}
-                                        reset={this.resetFlexStyle}
-                                        showModal={this.props.showModal}
-                                        width="110px"
-                                        key={index}
-                                    />
-                                )
-                            })}
-                            <Textbox
-                                property="flex-flow"
-                                values={`${this.state.flexStyle['flex-direction']} ${this.state.flexStyle['flex-wrap']}`}
-                                width="110px"
-                            />
-                        </div>
-
-                        <div className="cheatsheet-box">
-                            <p id="cheatsheet-header">Flex alignment properties</p>
-                            {flexAlignProp.map((prop, index) => {
-                                return (
-                                    <DivInteractive
-                                        property={prop.property}
-                                        values={prop.values}
-                                        explanation={prop.explanation}
-                                        flexStyle={this.state.flexStyle}
-                                        handleClick={this.updateFlexStyle}
-                                        reset={this.resetFlexStyle}
-                                        showModal={this.props.showModal}
-                                        width="110px"
-                                        key={index}
-                                    />
-                                )
-                            })}
-                        </div>
-
-                        <div className="cheatsheet-box">
-                            <TextboxCopyLong
-                                content={this.state.flexTextbox}
-                                copyText={this.props.copyText}
-                            />
-                        </div>
-
+                    <div className="cheatsheet-card-medium">
+                        <p id="textbox-header">Flex container properties</p>
+                        {flexContProp.map((prop, index) => {
+                            return (
+                                <DivInteractive
+                                    property={prop.property}
+                                    values={prop.values}
+                                    explanation={prop.explanation}
+                                    flexStyle={this.state.flexStyle}
+                                    handleClick={this.updateFlexStyle}
+                                    reset={this.resetFlexStyle}
+                                    showModal={this.props.showModal}
+                                    width="110px"
+                                    key={index}
+                                />
+                            )
+                        })}
+                        <Textbox
+                            property="flex-flow"
+                            values={`${this.state.flexStyle['flex-direction']} ${this.state.flexStyle['flex-wrap']}`}
+                            width="110px"
+                        />
                     </div>
 
-                    <div className="css-flex-column">
+                    <div className="cheatsheet-card-medium">
+                        <p id="textbox-header">Flex alignment properties</p>
+                        {flexAlignProp.map((prop, index) => {
+                            return (
+                                <DivInteractive
+                                    property={prop.property}
+                                    values={prop.values}
+                                    explanation={prop.explanation}
+                                    flexStyle={this.state.flexStyle}
+                                    handleClick={this.updateFlexStyle}
+                                    reset={this.resetFlexStyle}
+                                    showModal={this.props.showModal}
+                                    width="110px"
+                                    key={index}
+                                />
+                            )
+                        })}
+                    </div>
 
-                        <div className="css-flex-options">
-                            <div className="css-flex-option">
-                                Number of boxes: <DropdownMenu value={this.state.demoStyle['box-number']} options={[2, 3, 4, 5, 6, 7, 8, 9, 10]} onChange={this.updateBoxNumber} />
-                            </div>
-                            <div className="css-flex-option">
-                                Width of boxes: <DropdownMenu value={this.state.demoStyle['box-width']} options={['50px', '100px', '150px', '200px', '250px']} onChange={this.updateBoxWidth} />
-                            </div>
-                            <div className="css-flex-option">
-                                Height of boxes: <DropdownMenu value={this.state.demoStyle['box-height']} options={['50px', '100px', '150px', '200px', '250px']} onChange={this.updateBoxHeight} />
-                            </div>
-                        </div>
-
-                        <div className="css-flex-example" style={reactFlexStyle}>
-                            {boxNumbers.map(number => {
-                                return (
-                                    <div className={"css-flex-example-div"+number} key={number}style={{height: this.state.demoStyle['box-height'], width: this.state.demoStyle['box-width']}}>box {number}</div>
-                                )
-                            })}
-                        </div>
+                    <div className="cheatsheet-card-medium">
+                        <p id="textbox-header">Flex CSS code</p>
+                        <TextboxCopyLong
+                            content={this.state.flexTextbox}
+                            copyText={this.props.copyText}
+                        />
                     </div>
                 </div>
+
+                <div className="css-example-container">
+
+                    <div className="css-flex-options">
+                        <div className="css-flex-option">
+                            Number of boxes: <DropdownMenu value={this.state.demoStyle['box-number']} options={[2, 3, 4, 5, 6, 7, 8, 9, 10]} onChange={this.updateBoxNumber} />
+                        </div>
+                        <div className="css-flex-option">
+                            Width of boxes: <DropdownMenu value={this.state.demoStyle['box-width']} options={['50px', '100px', '150px', '200px', '250px']} onChange={this.updateBoxWidth} />
+                        </div>
+                        <div className="css-flex-option">
+                            Height of boxes: <DropdownMenu value={this.state.demoStyle['box-height']} options={['50px', '100px', '150px', '200px', '250px']} onChange={this.updateBoxHeight} />
+                        </div>
+                    </div>
+
+                    <div className="css-flex-example" style={reactFlexStyle}>
+                        {boxNumbers.map(number => {
+                            return (
+                                <div className={"css-flex-example-div"+number} key={number}style={{height: this.state.demoStyle['box-height'], width: this.state.demoStyle['box-width']}}>box {number}</div>
+                            )
+                        })}
+                    </div>
+                </div>
+
             </div>
         );
     }

@@ -328,84 +328,81 @@ class FrontendCssImg extends React.Component {
                     CSS Images
                 </div>
                 <div className="cheatsheet-container">
-                    <div className="css-img-column">
 
-                        <div className="cheatsheet-box">
-                            <p id="cheatsheet-header">Image properties</p>
+                    <div className="cheatsheet-card-medium">
+                        <p id="textbox-header">Image properties</p>
 
-                            <DivInteractive
-                                property="object-fit"
-                                values={['fill', 'contain', 'cover', 'none', 'scale-down']}
-                                explanation='The CSS object-fit property is used to specify how an <img> or <video> should be resized to fit its container.'
-                                flexStyle={this.state.imgStyle}
-                                showModal={this.props.showModal}
-                                handleClick={this.updateImgStyle}
-                                reset={this.resetImgStyle}
-                                width="150px"
-                            />
+                        <DivInteractive
+                            property="object-fit"
+                            values={['fill', 'contain', 'cover', 'none', 'scale-down']}
+                            explanation='The CSS object-fit property is used to specify how an <img> or <video> should be resized to fit its container.'
+                            flexStyle={this.state.imgStyle}
+                            showModal={this.props.showModal}
+                            handleClick={this.updateImgStyle}
+                            reset={this.resetImgStyle}
+                            width="150px"
+                        />
 
-                            <div className="css-img-obj-pos">
-                                <div className="css-img-obj-pos-title" id="div-inter-clickable" onClick={() => this.props.showModal('object-position', `The object-position CSS property specifies the alignment of the selected replaced element's contents within the element's box. Areas of the box which aren't covered by the replaced element's object will show the element's background.`)}>object-position:</div>
-                                <div>
-                                    <DropdownMenu value={this.state.objectPosition.selected.type} options={Object.keys(this.state.objectPosition.choices)} onChange={this.updateObjPosType} />
-                                    &nbsp;&nbsp;x-axis: <DropdownMenu value={this.state.objectPosition.selected['x-axis']} options={this.state.objectPosition.choices[this.state.objectPosition.selected.type]['x-axis']} onChange={this.updateObjPosX} />
-                                    &nbsp;&nbsp;y-axis: <DropdownMenu value={this.state.objectPosition.selected['y-axis']} options={this.state.objectPosition.choices[this.state.objectPosition.selected.type]['y-axis']} onChange={this.updateObjPosY} />
-                                    &nbsp;<RiRefreshLine id="div-inter-clickable" onClick={() => this.resetObjPos('object-position')}/>
-                                </div>
+                        <div className="css-img-obj-pos">
+                            <div className="css-img-obj-pos-title" id="div-inter-clickable" onClick={() => this.props.showModal('object-position', `The object-position CSS property specifies the alignment of the selected replaced element's contents within the element's box. Areas of the box which aren't covered by the replaced element's object will show the element's background.`)}>object-position:</div>
+                            <div>
+                                <DropdownMenu value={this.state.objectPosition.selected.type} options={Object.keys(this.state.objectPosition.choices)} onChange={this.updateObjPosType} />
+                                &nbsp;&nbsp;x-axis: <DropdownMenu value={this.state.objectPosition.selected['x-axis']} options={this.state.objectPosition.choices[this.state.objectPosition.selected.type]['x-axis']} onChange={this.updateObjPosX} />
+                                &nbsp;&nbsp;y-axis: <DropdownMenu value={this.state.objectPosition.selected['y-axis']} options={this.state.objectPosition.choices[this.state.objectPosition.selected.type]['y-axis']} onChange={this.updateObjPosY} />
+                                &nbsp;<RiRefreshLine id="div-inter-clickable" onClick={() => this.resetObjPos('object-position')}/>
                             </div>
-
-                            <DivInteractive
-                                property="image-rendering"
-                                values={['auto', 'crisp-edges', 'pixelated']}
-                                explanation='The image-rendering CSS property sets an image scaling algorithm. The property applies to an element itself, to any images set in its other properties, and to its descendants.'
-                                flexStyle={this.state.imgStyle}
-
-                                showModal={this.props.showModal}
-                                handleClick={this.updateImgStyle}
-                                reset={this.resetImgStyle}
-                                width="150px"
-                            />
-
-                            <div className="css-img-obj-pos">
-                                <div className="css-img-obj-pos-title" id="div-inter-clickable" onClick={() => this.props.showModal('filter', `The filter property defines visual effects (like blur and saturation) to an element (often <img>).`)}>filter:</div>
-                                <div>
-                                    <DropdownMenu value={this.state.filter.selected.type} options={Object.keys(this.state.filter.choices)} onChange={this.updateFilterType} />
-                                    <DropdownMenu value={this.state.filter.selected.option} options={this.state.filter.choices[this.state.filter.selected.type]} onChange={this.updateFilterOption} />
-                                    &nbsp;<RiRefreshLine id="div-inter-clickable" onClick={() => this.resetFilter(this.state.filter.selected.type)}/>
-                                </div>
-                            </div>
-
                         </div>
 
+                        <DivInteractive
+                            property="image-rendering"
+                            values={['auto', 'crisp-edges', 'pixelated']}
+                            explanation='The image-rendering CSS property sets an image scaling algorithm. The property applies to an element itself, to any images set in its other properties, and to its descendants.'
+                            flexStyle={this.state.imgStyle}
 
+                            showModal={this.props.showModal}
+                            handleClick={this.updateImgStyle}
+                            reset={this.resetImgStyle}
+                            width="150px"
+                        />
 
-                        <div className="cheatsheet-box">
-                            <TextboxCopyLong
-                                content={this.state.imgTextbox}
-                                onChange={this.updateImgTextbox}
-                                copyText={this.props.copyText}
-                            />
+                        <div className="css-img-obj-pos">
+                            <div className="css-img-obj-pos-title" id="div-inter-clickable" onClick={() => this.props.showModal('filter', `The filter property defines visual effects (like blur and saturation) to an element (often <img>).`)}>filter:</div>
+                            <div>
+                                <DropdownMenu value={this.state.filter.selected.type} options={Object.keys(this.state.filter.choices)} onChange={this.updateFilterType} />
+                                <DropdownMenu value={this.state.filter.selected.option} options={this.state.filter.choices[this.state.filter.selected.type]} onChange={this.updateFilterOption} />
+                                &nbsp;<RiRefreshLine id="div-inter-clickable" onClick={() => this.resetFilter(this.state.filter.selected.type)}/>
+                            </div>
                         </div>
 
                     </div>
 
-                    <div className="css-img-column">
 
-                        <div className="css-img-example">
-                            <div className="css-img-options">
-                                <div className="css-img-option">
-                                    Container height: <DropdownMenu value={this.state.imgContStyle['height']} options={['100px', '200px','300px','400px','500px']} onChange={this.updateImgContHeight} />
-                                </div>
-                                <div className="css-img-option">
-                                    Container width: <DropdownMenu value={this.state.imgContStyle['width']} options={['300px', '400px','500px','600px','700px']} onChange={this.updateImgContWidth} />
-                                </div>
-                            </div>
-                            <div className="css-img-container" style={this.state.imgContStyle}>
-                                <img src={cat} style={reactImgStyle} alt='I am a cat' />
-                            </div>
+
+                    <div className="cheatsheet-card-medium">
+                        <p id="textbox-header">Image CSS code</p>
+                        <TextboxCopyLong
+                            content={this.state.imgTextbox}
+                            onChange={this.updateImgTextbox}
+                            copyText={this.props.copyText}
+                        />
+                    </div>
+
+                </div>
+
+                <div className="css-img-example">
+                    <div className="css-img-options">
+                        <div className="css-img-option">
+                            Container height: <DropdownMenu value={this.state.imgContStyle['height']} options={['100px', '200px','300px','400px','500px']} onChange={this.updateImgContHeight} />
                         </div>
+                        <div className="css-img-option">
+                            Container width: <DropdownMenu value={this.state.imgContStyle['width']} options={['300px', '400px','500px','600px','700px']} onChange={this.updateImgContWidth} />
+                        </div>
+                    </div>
+                    <div className="css-img-container" style={this.state.imgContStyle}>
+                        <img src={cat} style={reactImgStyle} alt='I am a cat' />
                     </div>
                 </div>
+
             </div>
         );
     }

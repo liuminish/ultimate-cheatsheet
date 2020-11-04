@@ -96,7 +96,7 @@ class BackendRuby extends React.Component {
           Ruby
             </div>
         <div className="cheatsheet-container">
-          <div className="cheatsheet-card">
+          <div className="cheatsheet-card-big">
             <p id="textbox-header">Ruby Operators</p>
               <table class="backend-ruby-operators">
                 <thead>
@@ -120,7 +120,7 @@ class BackendRuby extends React.Component {
               </table>
           </div>
 
-          <div className="cheatsheet-card">
+          <div className="cheatsheet-card-big">
             <p id="textbox-header">Ruby Methods</p>
             <table class="backend-ruby-operators">
               <thead>

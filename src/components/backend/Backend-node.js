@@ -12,11 +12,11 @@ class BackendNodejs extends React.Component {
             <div className="section-title">
                 NodeJS
             </div>
-            <div className="cheatsheet-column">
+            <div className="cheatsheet-container">
 
-                <div className="cheatsheet-box">
+                <div className="cheatsheet-card-big">
                     <p id="cheatsheet-header">Basic structure of server.js</p>
-                    <TextboxCopyLong 
+                    <TextboxCopyLong
                         content={`const express = require('express');
 const app = express();
 
@@ -42,11 +42,11 @@ app.listen(PORT, () => {
 });
 
 module.exports = app;`}
-                        copyText={this.props.copyText} 
+                        copyText={this.props.copyText}
                     />
                 </div>
 
-                <div className="cheatsheet-box">
+                <div className="cheatsheet-card-small">
                     <p id="cheatsheet-header">Links to middleware documentation</p>
                     <p id="backend-node-link">Body Parser: <ExternalLink href="http://expressjs.com/en/resources/middleware/body-parser.html">Expressjs documentation</ExternalLink></p>
                     <p id="backend-node-link">Cors: <ExternalLink href="http://expressjs.com/en/resources/middleware/cors.html">Expressjs documentation</ExternalLink></p>

@@ -208,7 +208,7 @@ class BackendRor extends React.Component {
           Ruby on Rails
         </div>
         <div className="cheatsheet-container">
-          <div className="cheatsheet-card">
+          <div className="cheatsheet-card-big">
             <p id="textbox-header">Rail Methods</p>
             <table class="backend-ruby-operators">
               <thead>
@@ -232,7 +232,7 @@ class BackendRor extends React.Component {
             </table>
           </div>
 
-          <div className="cheatsheet-card">
+          <div className="cheatsheet-card-big">
             <p id="textbox-header">Rail Queries</p>
             <table class="backend-ruby-operators">
               <thead>
@@ -256,7 +256,7 @@ class BackendRor extends React.Component {
             </table>
           </div>
 
-          <div className="cheatsheet-card">
+          <div className="cheatsheet-card-small">
             <p id="textbox-header">Rail Structure (MVC)</p>
             {Object.keys(rorStructure).map(main => {
               return (
@@ -267,7 +267,7 @@ class BackendRor extends React.Component {
             })}
           </div>
 
-          <div className="cheatsheet-card">
+          <div className="cheatsheet-card-small">
             <p id="textbox-header">Rail Commands</p>
             {rorCommands.map(main => {
               return (
@@ -278,7 +278,7 @@ class BackendRor extends React.Component {
             })}
           </div>
 
-          <div className="cheatsheet-card">
+          <div className="cheatsheet-card-small">
             <p id="textbox-header">Rail Gems</p>
             {Object.keys(rorGems).map(main => {
               return (
@@ -289,7 +289,7 @@ class BackendRor extends React.Component {
             })}
           </div>
 
-          <div className="cheatsheet-card">
+          <div className="cheatsheet-card-small">
             <p id="textbox-header">Rail Others</p>
             {rorPayboy.map(main => {
               return (

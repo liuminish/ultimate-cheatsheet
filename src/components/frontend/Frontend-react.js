@@ -11,10 +11,10 @@ class FrontendReact extends React.Component {
             <div className="section-title">
                 React
             </div>
-            <div className="cheatsheet-column">
+            <div className="cheatsheet-container">
 
-                <div className="cheatsheet-box">
-                    <p id="cheatsheet-header">Create React App</p>
+                <div className="cheatsheet-card-medium">
+                    <p id="textbox-header">Create React App</p>
                     <div className="frontend-react-row">
                         <div className="frontend-react-expl">
                             To install:
@@ -33,8 +33,8 @@ class FrontendReact extends React.Component {
                     /></div>
                 </div>
 
-                <div className="cheatsheet-box">
-                    <p id="cheatsheet-header">Useful React Packages</p>
+                <div className="cheatsheet-card-medium">
+                    <p id="textbox-header">Useful React Packages</p>
                     <div className="frontend-react-row">
                         <div className="frontend-react-expl">
                             React Icons:
@@ -61,8 +61,8 @@ class FrontendReact extends React.Component {
                     /></div>
                 </div>
 
-                <div className="cheatsheet-box">
-                    <p id="cheatsheet-header">Export and Import of Modules</p>
+                <div className="cheatsheet-card-medium">
+                    <p id="textbox-header">Export and Import of Modules</p>
                     <div className="frontend-react-row">
                         <div className="frontend-react-expl">
                             Export:

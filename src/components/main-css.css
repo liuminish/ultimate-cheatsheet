@@ -119,13 +119,33 @@ a:hover {
 .cheatsheet-container {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+  margin: 0 40px;
 }
 
-.cheatsheet-card {
+.cheatsheet-card-big {
   background-color: white;
   margin: 20px 10px;
   padding: 10px;
-  max-width: 45%;
+  width: 48%;
+  border-radius: 10px;
+  overflow: auto;
+}
+
+.cheatsheet-card-medium {
+  background-color: white;
+  margin: 20px 10px;
+  padding: 10px;
+  width: 500px;
+  border-radius: 10px;
+  overflow: auto;
+}
+
+.cheatsheet-card-small {
+  background-color: white;
+  margin: 20px 10px;
+  padding: 10px;
+  width: 300px;
   border-radius: 10px;
   overflow: auto;
 }
@@ -133,10 +153,6 @@ a:hover {
 #cheatsheet-header {
   margin-bottom: 5px;
   text-decoration: underline;
-}
-
-.cheatsheet-box p {
-  margin: 0;
 }
 
 #cheatsheet-keyword {
@@ -417,8 +433,9 @@ a:hover {
 
 /* frontend flex styles */
 
-.css-flex-column {
-  margin: 0 10px;
+.css-example-container {
+  margin: auto;
+  width: 80%;
 }
 
 .css-flex-example {
@@ -513,9 +530,9 @@ a:hover {
 
 .css-img-example {
   background-color: white;
-  margin: 20px 0;
+  margin: 20px auto;
   padding: 10px;
-  height: 500px;
+  width: 700px;
   border-radius: 10px;
   overflow: scroll;
 }

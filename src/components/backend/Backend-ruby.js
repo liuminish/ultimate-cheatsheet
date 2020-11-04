@@ -1,8 +1,6 @@
 import React from 'react';
 import '../main-css.css';
 
-import { TextboxCopy } from '../utils/Utils';
-
 const rubyList = [
   {
     'name': 'safe navigation operator (&)',
@@ -23,53 +21,70 @@ const rubyMethods = [
     'explanation': 'Returns the class of a (e.g. string, integer, Trueclass, Falseclass)'
   },
   {
+    'name': '.first',
+    'example': 'array.first',
+    'explanation': 'Returns first value in array.'
+  },
+  {
+    'name': '.last',
+    'example': 'array.last',
+    'explanation': 'Returns last value in array.'
+  },
+  {
+    'name': '.length',
+    'example': 'array.length',
+    'explanation': 'Returns length of array.'
+  },
+  {
+    'name': '.count',
+    'example': 'array.count { |i| i > 5}',
+    'explanation': 'Returns number of values in array based on set condition. Can be used without condition as well.'
+  },
+  {
+    'name': '.min',
+    'example': 'array.min',
+    'explanation': 'Returns minimum value in array.'
+  },
+  {
+    'name': '.max',
+    'example': 'array.max',
+    'explanation': 'Returns maximum value in array.'
+  },
+  {
+    'name': '.flatten',
+    'example': 'array.flatten',
+    'explanation': '"Flattens" array, merge any inner arrays into the outer array. Returns only one array.'
+  },
+  {
+    'name': '.sort',
+    'example': 'array.sort { |a b| b <=> a }',
+    'explanation': 'Default without block is sort by ascending. Can sort by descending. Returns array.'
+  },
+  {
     'name': '.uniq',
     'example': 'array.uniq',
-    'explanation': 'Removes duplicated values in array.'
-  }
-]
-
-const rorMethods = [
-  {
-    'name': '.present?',
-    'example': '',
-    'explanation': ''
+    'explanation': 'Removes duplicated values in array. Returns array.'
   },
   {
-    'name': '.presence',
-    'example': 'a = b.presence || c.presence || d',
-    'explanation': 'If b is present, a = b. Else if C is present, a = c. Else a = d.'
+    'name': 'intersect (&), concatenation (+)',
+    'example': 'array1 & array2 OR array1 + array2',
+    'explanation': 'Returns new array with both array1 and array2. Returns array.'
   },
   {
-    'name': '.compact',
-    'example': 'array.compact OR hash.compact',
-    'explanation': 'Any nil values will be removed. For hash, entire key-value pair will be removed.'
-  }
-]
-
-const rorQueryMethods = [
-  {
-    'name': '.pluck',
-    'example': 'Record.pluck(:id, :name)',
-    'explanation': 'Returns an array of array [[id, name], [id, name]]. Will be a simple array if plucking only one attribute.'
+    'name': 'difference (-)',
+    'example': 'array1 - array2',
+    'explanation': 'Removes array2 values from array1. Returns array.'
   },
   {
-    'name': '.joins',
-    'examples': [
-      {
-        'example': 'RecordA.joins(:recordbs)',
-        'explanation': 'RecordA join with RecordB (which is an association).'
-      },
-      {
-        'example': 'RecordA.joins(:recordb, :recordc)',
-        'explanation': 'RecordA join with RecordB and C (which are associations).'
-      },
-      {
-        'example': 'RecordA.joins(recordb: [:recordd])',
-        'explanation': 'RecordA join with RecordB (which is an association), with C being nested in B.'
-      }
-    ]
-  }
+    'name': '.join',
+    'example': `array.join(',')`,
+    'explanation': `Joins array of values with specified separator ','. Will not add separator if array only has 1 value. Returns string.`
+  },
+  {
+    'name': 'Date initiallizer',
+    'example': `Date.new(3,4,2020) or Date.parse('2020-4 - 3')`,
+    'explanation': 'Initializes date.'
+  },
 ]
 
 class BackendRuby extends React.Component {
@@ -80,41 +95,53 @@ class BackendRuby extends React.Component {
         <div className="section-title">
           Ruby
             </div>
-        <div className="cheatsheet-column">
-          <div className="cheatsheet-box">
-            <div className="backend-sql-row">
-              <div className="backend-sql-expl">
-                <p id="textbox-header">SELECT Statement</p>
-                <p>Select all columns from movies table.</p>
-              </div>
-              <TextboxCopy
-                content={`SELECT * \nFROM movies;`}
-                copyText={this.props.copyText}
+        <div className="cheatsheet-container">
+          <div className="cheatsheet-card">
+            <p id="textbox-header">Ruby Operators</p>
+              <table class="backend-ruby-operators">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Example</th>
+                    <th>Explanation</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {rubyList.map(operator => {
+                    return (
+                      <tr>
+                        <td>{operator.name}</td>
+                        <td>{operator.example}</td>
+                        <td>{operator.explanation}</td>
+                      </tr>
+                    )
+                  })}
+                </tbody>
+              </table>
+          </div>
 
-              />
-            </div>
-
-            <div className="backend-sql-row">
-              <div className="backend-sql-expl">
-                <p id="textbox-header">AS Clause</p>
-                <p>Select name column aliased as movie_title from movies table.</p>
-              </div>
-              <TextboxCopy
-                content={`SELECT name AS 'movie_title' \nFROM movies;`}
-                copyText={this.props.copyText}
-              />
-            </div>
-
-            <div className="backend-sql-row">
-              <div className="backend-sql-expl">
-                <p id="textbox-header">WHERE Clause</p>
-                <p>Select title column from library table, where pub_year is 2017.</p>
-              </div>
-              <TextboxCopy
-                content={`SELECT title\nFROM library\nWHERE pub_year = 2017;`}
-                copyText={this.props.copyText}
-              />
-            </div>
+          <div className="cheatsheet-card">
+            <p id="textbox-header">Ruby Methods</p>
+            <table class="backend-ruby-operators">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Example</th>
+                  <th>Explanation</th>
+                </tr>
+              </thead>
+              <tbody>
+                {rubyMethods.map(method => {
+                  return (
+                    <tr>
+                      <td>{method.name}</td>
+                      <td>{method.example}</td>
+                      <td>{method.explanation}</td>
+                    </tr>
+                  )
+                })}
+              </tbody>
+            </table>
           </div>
 
         </div>

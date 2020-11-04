@@ -121,14 +121,11 @@ a:hover {
   justify-content: center;
 }
 
-.cheatsheet-column {
-  margin: 0 auto;
-}
-
-.cheatsheet-box {
+.cheatsheet-card {
   background-color: white;
-  margin: 20px 0;
+  margin: 20px 10px;
   padding: 10px;
+  max-width: 45%;
   border-radius: 10px;
   overflow: auto;
 }
@@ -569,6 +566,16 @@ a:hover {
 
 #backend-node-link a:hover {
   color: var(--second-txt-color)
+}
+
+/* backend ruby styles */
+
+.backend-ruby-operators {
+  border-collapse: collapse;
+}
+
+.backend-ruby-operators th, .backend-ruby-operators td {
+  border: 1px solid grey;
 }
 
 /* backend sql styles */
